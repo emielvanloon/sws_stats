@@ -39,7 +39,6 @@ radion button
 ### Title
 
 ### Question
-```
 The sample size (#n#) is $ss. 
 The sample mean (#\bar{Y}#) is $mean. Assume #\bar{Y}# is normally distributed.
 The sample standard deviation (#s#) is $sd.
@@ -49,9 +48,6 @@ The mean expected under the null hypothesis (#\mu_0#) is $mu0.
 The significance level (#\alpha#) is $alpha.
 
 Test whether the mean (#\bar{Y}#) is significantly $alternative $mu0 (#\mu_0#).
-```
-
-### Solution
 
 ### Options
 1. The mean (#\bar{Y}#) is not significantly different from $mu0 (#\mu_0#).
@@ -60,5 +56,8 @@ Test whether the mean (#\bar{Y}#) is significantly $alternative $mu0 (#\mu_0#).
 4. The mean (#\bar{Y}#) is significantly greater than $mu0 (#\mu_0#).
 
 ## Variables
+$ss
+:  `rand(30, 50)`
+:  >sample size is a random integer between 30 and 50
 
 ## Solutions
