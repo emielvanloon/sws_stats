@@ -13,8 +13,8 @@
 
 # Order
 1. one_sample_t_test
-1.1 one_sample_t_test_intro
-1.2 one_sample_t_test_H
+  1. one_sample_t_test_intro
+  2. one_sample_t_test_H
 1.3 one_sample_t_test_SE
 1.4 one_sample_t_test_t
 1.5 one_sample_t_test_P
