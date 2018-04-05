@@ -59,5 +59,8 @@ Test whether the mean (#\bar{Y}#) is significantly $alternative $mu0 (#\mu_0#).
 Alias | Definition | Decimals | Author comments
 --- | --- | --- | ---
 `$ss` | `rand(30, 50)` | 0 | sample size is a random integer between 30 and 50
+`$mu` | `sw_distrib("
+random_continuous_uniform(80, 120)
+")` | 1 | population mean is random float between 80 and 120
 
 ## Solutions
