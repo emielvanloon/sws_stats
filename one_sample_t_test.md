@@ -39,7 +39,8 @@ radion button
 ### Title
 
 ### Question
-`The sample size (#n#) is $ss. 
+```
+The sample size (#n#) is $ss. 
 The sample mean (#\bar{Y}#) is $mean. Assume #\bar{Y}# is normally distributed.
 The sample standard deviation (#s#) is $sd.
 
@@ -47,7 +48,8 @@ The mean expected under the null hypothesis (#\mu_0#) is $mu0.
 
 The significance level (#\alpha#) is $alpha.
 
-Test whether the mean (#\bar{Y}#) is significantly $alternative $mu0 (#\mu_0#).`
+Test whether the mean (#\bar{Y}#) is significantly $alternative $mu0 (#\mu_0#).
+```
 
 ### Solution
 
