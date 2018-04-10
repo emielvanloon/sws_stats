@@ -154,7 +154,7 @@ Formulate the null hypothesis (#H_0#) and the alternative hypothesis (#H_A#).
 ### Solution
 Statistical hypotheses are always formulated in terms of population parameters.
 
-#H_0: \mu = \mu_0#
+#H_0: \mu = \mu_0#  
 #H_A: \mu $ahsign \mu_0#
 
 ### Input area
