@@ -16,7 +16,7 @@
 
 # Order
 1. one_sample_t_test  
-  1.1. one_sample_t_test_intro
+  1.1. one_sample_t_test_intro  
   1.2. one_sample_t_test_H  
   1.3. one_sample_t_test_SE  
   1.4. one_sample_t_test_t  
@@ -49,7 +49,7 @@ Alias | Definition | Decimals | Author comments
 `$P` | `($P_uf > 1)? floor($P_uf) : $P_uf` | 3 | P-value floored in case it exceeds 1
 `$comps` | `($P < $alpha)? 1 : 2` | 0 | solution to P and alpha comparison
 `$compsign` | `($P < $alpha)? '<' : '>'` | 0 | latex sign for P and alpha comparison
-`$con` | `($P > $alpha)? 1 : (($mean < $mu0)? 3 : 4)` | 0 | solution to conclusion multiple choice question
+`$cons` | `($P > $alpha)? 1 : (($mean < $mu0)? 3 : 4)` | 0 | solution to conclusion multiple choice question
 
 # 1. one_sample_t_test
 
@@ -82,12 +82,15 @@ Test whether the mean (#\bar{Y}#) is significantly $alternative $mu0 (#\mu_0#).
 ### Solution
 
 ### Options
-1. The mean (#\bar{Y}#) is not significantly different from $mu0 (#\mu_0#).
+1. The mean (#\bar{Y}#) is <strong>not</strong> significantly different from $mu0 (#\mu_0#).
 2. The mean (#\bar{Y}#) is significantly different from $mu0 (#\mu_0#).
 3. The mean (#\bar{Y}#) is significantly less than $mu0 (#\mu_0#).
 4. The mean (#\bar{Y}#) is significantly greater than $mu0 (#\mu_0#).
 
 ## Solutions
+Solution | Definition
+--- | ---
+Solution 1 | `$cons`
 
 # 1.1. one_sample_t_test_intro
 
@@ -165,7 +168,7 @@ Solution 1 | eval normal | 3 | 1
 Solution 2 | eval normal | 1 | 2
 Solution 3 | eval normal | 4 | 3
 Solution 4 | eval normal | 3 | 4
-Solution 5 | eval normal | $ahs | 5
+Solution 5 | eval normal | `$ahs` | 5
 Solution 6 | eval normal | 4 | 6
 
 # 1.3. one_sample_t_test_SE 
@@ -209,7 +212,7 @@ SE_\bar{Y} = \frac{s}{\sqrt{n}}
 ## Solutions
 Solution | Evaluation type | Definition | Answer field
 --- | --- | --- | ---
-Solution 1 | eval numeric | $se | 1
+Solution 1 | eval numeric | `$se` | 1
 
 # 1.4. one_sample_t_test_t  
 
@@ -256,7 +259,7 @@ t_{$df} = \frac{\bar{Y} - \mu_0}{SE_\bar{Y}}
 ## Solutions
 Solution | Evaluation type | Definition | Answer field
 --- | --- | --- | ---
-Solution 1 | eval numeric | $tstat | 1
+Solution 1 | eval numeric | `$tstat` | 1
 
 # 1.5. one_sample_t_test_P  
 
@@ -296,7 +299,79 @@ The $sided-sided P-value (#P#) can be calculated in R with:
 ## Solutions
 Solution | Evaluation type | Definition | Answer field
 --- | --- | --- | ---
-Solution 1 | eval numeric | $P | 1
+Solution 1 | eval numeric | `$P` | 1
 
 # 1.6. one_sample_t_test_comp  
+
+## General options
+
+### Internal name
+one_sample_t_test_comp
+
+### Type
+open free
+
+### Number of input fields
+1
+
+## Texts
+
+### Title
+Compare P-value to significance level
+
+### Question
+The significance level (#\alpha#) is $alpha.
+
+The P-value (#P#) was calculated in the previous excercise.
+
+Compare the P-value (#P#) to the significance level (#\alpha#).
+
+### Solution
+#P $compsign \alpha#
+#$P $compsign $alpha#
+
+### Input area
+#P# #dropdown(<, >)# #\alpha#
+
+## Solutions
+Solution | Evaluation type | Definition | Answer field
+--- | --- | --- | ---
+Solution 1 | eval numeric | `$comps` | 1
+
 # 1.7. one_sample_t_test_con
+
+## General options
+
+### Internal name
+one_sample_t_test_con
+
+### Type
+radio button
+
+### Number of input fields
+1
+
+## Texts
+
+### Title
+~ucfirst($sided)~-sided one sample t-test conclusion
+
+### Question
+The sample mean (#\bar{Y}#) is $mean.
+The mean expected under the null hypothesis (#\mu_0#) is $mu0.
+
+Give the conclusion of the $sided-sided one sample t-test.
+
+### Solution
+An one-sided conclusion can be drawn from a significant two-sided test.
+
+### Options
+1. The mean (#\bar{Y}#) is <strong>not</strong> significantly different from $mu0 (#\mu_0#).
+2. The mean (#\bar{Y}#) is significantly different from $mu0 (#\mu_0#).
+3. The mean (#\bar{Y}#) is significantly less than $mu0 (#\mu_0#).
+4. The mean (#\bar{Y}#) is significantly greater than $mu0 (#\mu_0#).
+
+## Solutions
+Solution | Evaluation type | Definition | Answer field
+--- | --- | --- | ---
+Solution 1 | eval numeric | $cons | 1
