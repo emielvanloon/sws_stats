@@ -286,7 +286,7 @@ Give your answer with 3 decimals.
 ### Solution
 The $sided-sided P-value (#P#) can be calculated in R with:
 
-<code>pt(q = $tstat, df = $df, lower.tail = $lt) * $sided_num<\code>
+`pt(q = $tstat, df = $df, lower.tail = $lt) * $sided_num`
 
 #P =# $P
 
