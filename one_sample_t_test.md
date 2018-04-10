@@ -33,16 +33,21 @@ Alias | Definition | Decimals | Author comments
 `$sd` | `round(sw_descriptive("std1($ryi)"), 1)` | 1 | sample standard deviation rounded to 1 decimal
 `$mu0` | `100` | 1 | mean expected under null hypothesis
 `$alpha` | `array(0.01, 0.05)` | 2 | significance level
-`$alternative`
+`$alternative` | `($sided == 'two')? 'different from' : (($mean < $mu0)? 'less than' : 'greater than')` | text for alternative hypothesis
+`$ahs` | `($sided == 'two')? 2 : (($mean < $mu0)? 3 : 4)` | 0 | solution to alternative hypothesis
+`$ahsign` | `($sided == 'two')? '\neq' : (($mean < $mu0)? '<' : '>')` | 0 | latex sign for alternative hypothesis
 `$se` | `round($sd / sqrt($ss), 1)` | 1 | standard error of the mean rounded to 1 decimal
-`$df` | 
+`$df` | `$ss - 1` | 0 | degrees of freedom
 `$tstat` | `round(($mean - $mu0) / $se, 2)` | 2 | t-statistic  rounded to 2 decimals
-`$sided` |
-`$lt` |
-`$sided_num` | 
-`$P1_lt` |
-`$P_uf` |
-`$P` |
+`$sided` | `array('one', 'two')` | 0 | one or two sided
+`$lt` | ($tstat < 0)? 'TRUE' : 'FALSE' | 0 | R argument lower.tail in pt function TRUE or FALSE
+`$sided_num` | `($sided == 'two')? 2 : 1` | one or two sided nummeric
+`$P1_lt` | `sw_distrib("cdf_student_t ($tstat, $ss)")` | 3 | one sided P-value from lower tail
+`$P_uf` | `($tstat < 0)? $P1_lt * $sided_num : (1 - $P1_lt) * $sided_num` | 3 | unfloored one or two-sided P-value from lower or upper tail
+`$P` | `($P_uf > 1)? floor($P_uf) : $P_uf` | 3 | P-value floored in case it exceeds 1
+`$comps` | `($P < $alpha)? 1 : 2` | 0 | solution to P and alpha comparison
+`$compsign` | `($P < $alpha)? '<' : '>'` | 0 | latex sign for P and alpha comparison
+`$con` | `($P > $alpha)? 1 : (($mean < $mu0)? 3 : 4)` | 0 | solution to conclusion multiple choice question
 
 # 1. one_sample_t_test
 
@@ -72,6 +77,8 @@ The significance level (#\alpha#) is $alpha.
 
 Test whether the mean (#\bar{Y}#) is significantly $alternative $mu0 (#\mu_0#).
 
+### Solution
+
 ### Options
 1. The mean (#\bar{Y}#) is not significantly different from $mu0 (#\mu_0#).
 2. The mean (#\bar{Y}#) is significantly different from $mu0 (#\mu_0#).
@@ -79,3 +86,46 @@ Test whether the mean (#\bar{Y}#) is significantly $alternative $mu0 (#\mu_0#).
 4. The mean (#\bar{Y}#) is significantly greater than $mu0 (#\mu_0#).
 
 ## Solutions
+
+# 1.1. one_sample_t_test_intro
+
+## General options
+
+### Internal name
+one_sample_t_test_intro
+
+### Type
+radion button
+
+### Number of input fields
+1
+
+## Texts
+
+### Title
+Choose the appropriate statistical test
+
+### Question
+Assume #\bar{Y}# is normally distributed.
+
+Which statistical test is appropriate to test whether the mean (#\bar{Y}#) is significantly $alternative the mean expected under the null hypothesis (#\mu_0#)?
+
+### Solution
+An one sample t-test tests whether a sample mean (#\bar{Y}#) is different from an expected value for the mean under the null hypothesis (#\mu_0#). Assuming the sample mean is normally distributed.
+
+### Options
+1. One sample t-test
+2. Two sample t-test
+3. Paired t-test
+
+## Solutions
+Solution | Definition
+--- | ---
+Solution 1 | 1
+
+# 1.2. one_sample_t_test_H
+# 1.3. one_sample_t_test_SE  
+# 1.4. one_sample_t_test_t  
+# 1.5. one_sample_t_test_P  
+# 1.6. one_sample_t_test_comp  
+# 1.7. one_sample_t_test_con
