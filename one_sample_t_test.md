@@ -33,7 +33,7 @@ Alias | Definition | Decimals | Author comments
 `$sd` | `round(sw_descriptive("std1($ryi)"), 1)` | 1 | sample standard deviation rounded to 1 decimal
 `$mu0` | `100` | 1 | mean expected under null hypothesis
 `$alpha` | `array(0.01, 0.05)` | 2 | significance level
-`$alternative` | `($sided == 'two')? 'different from' : (($mean < $mu0)? 'less than' : 'greater than')` | text for alternative hypothesis
+`$alternative` | `($sided == 'two')? 'different from' : (($mean < $mu0)? 'less than' : 'greater than')` | 0 | text for alternative hypothesis
 `$ahs` | `($sided == 'two')? 2 : (($mean < $mu0)? 3 : 4)` | 0 | solution to alternative hypothesis
 `$ahsign` | `($sided == 'two')? '\neq' : (($mean < $mu0)? '<' : '>')` | 0 | latex sign for alternative hypothesis
 `$se` | `round($sd / sqrt($ss), 1)` | 1 | standard error of the mean rounded to 1 decimal
@@ -41,7 +41,7 @@ Alias | Definition | Decimals | Author comments
 `$tstat` | `round(($mean - $mu0) / $se, 2)` | 2 | t-statistic  rounded to 2 decimals
 `$sided` | `array('one', 'two')` | 0 | one or two sided
 `$lt` | ($tstat < 0)? 'TRUE' : 'FALSE' | 0 | R argument lower.tail in pt function TRUE or FALSE
-`$sided_num` | `($sided == 'two')? 2 : 1` | one or two sided nummeric
+`$sided_num` | `($sided == 'two')? 2 : 1` | 0 | one or two sided nummeric
 `$P1_lt` | `sw_distrib("cdf_student_t ($tstat, $ss)")` | 3 | one sided P-value from lower tail
 `$P_uf` | `($tstat < 0)? $P1_lt * $sided_num : (1 - $P1_lt) * $sided_num` | 3 | unfloored one or two-sided P-value from lower or upper tail
 `$P` | `($P_uf > 1)? floor($P_uf) : $P_uf` | 3 | P-value floored in case it exceeds 1
@@ -124,6 +124,48 @@ Solution | Definition
 Solution 1 | 1
 
 # 1.2. one_sample_t_test_H
+
+## General options
+
+### Internal name
+one_sample_t_test_H
+
+### Type
+open free
+
+### Number of input fields
+6
+
+## Texts
+
+### Title
+Formulate hypotheses
+
+### Question
+We want to test whether the mean (#\bar{Y}#) is significantly $alternative the mean expected under the null hypothesis (#\mu_0#).
+
+Formulate the null hypothesis (#H_0#) and the alternative hypothesis (#H_A#).
+
+### Solution
+Statistical hypotheses are always formulated in terms of population parameters.
+
+#H_0: \mu = \mu_0#
+#H_A: \mu $ahsign \mu_0#
+
+### Input area
+#H_0:# #dropdown(#\bar{Y}#, #\bar{Y}_0#, #\mu#, #\mu_0#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#\bar{Y}#, #\bar{Y}_0#, #\mu#, #\mu_0#)#
+#H_A:# #dropdown(#\bar{Y}#, #\bar{Y}_0#, #\mu#, #\mu_0#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#\bar{Y}#, #\bar{Y}_0#, #\mu#, #\mu_0#)#
+
+## Solutions
+Solution | Evaluation type | Definition | Answer field
+--- | --- | --- | ---
+Solution 1 | eval normal | 3 | 1
+Solution 2 | eval normal | 1 | 2
+Solution 3 | eval normal | 4 | 3
+Solution 4 | eval normal | 3 | 4
+Solution 5 | eval normal | $ahs | 5
+Solution 6 | eval normal | 4 | 6
+
 # 1.3. one_sample_t_test_SE  
 # 1.4. one_sample_t_test_t  
 # 1.5. one_sample_t_test_P  
