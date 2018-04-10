@@ -153,7 +153,7 @@ Statistical hypotheses are always formulated in terms of population parameters.
 #H_A: \mu $ahsign \mu_0#
 
 ### Input area
-#H_0:# #dropdown(#\bar{Y}#, #\bar{Y}_0#, #\mu#, #\mu_0#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#\bar{Y}#, #\bar{Y}_0#, #\mu#, #\mu_0#)#
+#H_0:# #dropdown(#\bar{Y}#, #\bar{Y}_0#, #\mu#, #\mu_0#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#\bar{Y}#, #\bar{Y}_0#, #\mu#, #\mu_0#)#  
 #H_A:# #dropdown(#\bar{Y}#, #\bar{Y}_0#, #\mu#, #\mu_0#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#\bar{Y}#, #\bar{Y}_0#, #\mu#, #\mu_0#)#
 
 ## Solutions
@@ -166,7 +166,49 @@ Solution 4 | eval normal | 3 | 4
 Solution 5 | eval normal | $ahs | 5
 Solution 6 | eval normal | 4 | 6
 
-# 1.3. one_sample_t_test_SE  
+# 1.3. one_sample_t_test_SE 
+
+## General options
+
+### Internal name
+one_sample_t_test_SE
+
+### Type
+open free
+
+### Number of input fields
+1
+
+## Texts
+
+### Title
+Calculate the standard error of the mean
+
+### Question
+Sample size (#n#) is $ss. 
+The sample standard deviation (#s#) is $sd.
+
+Determine the value of the standard error of the mean (#SE_\bar{Y}#).
+
+Give your answer with 1 decimal.
+
+### Solution
+The standard error of the mean (#SE_\bar{Y}#) is calculated by:
+
+\begin{aligned}
+SE_\bar{Y} = \frac{s}{\sqrt{n}}
+= \frac{$sd}{\sqrt{$ss}}
+= $se
+\end{aligned}
+
+### Input area
+#SE_\bar{Y} =# #input#
+
+## Solutions
+Solution | Evaluation type | Definition | Answer field
+--- | --- | --- | ---
+Solution 1 | eval numeric | $se | 1
+
 # 1.4. one_sample_t_test_t  
 # 1.5. one_sample_t_test_P  
 # 1.6. one_sample_t_test_comp  
