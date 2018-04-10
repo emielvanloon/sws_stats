@@ -42,7 +42,7 @@ Alias | Definition | Decimals | Author comments
 `$df` | `$ss - 1` | 0 | degrees of freedom
 `$tstat` | `round(($mean - $mu0) / $se, 2)` | 2 | t-statistic  rounded to 2 decimals
 `$sided` | `array('one', 'two')` | 0 | one or two sided
-`$lt` | ($tstat < 0)? 'TRUE' : 'FALSE' | 0 | R argument lower.tail in pt function TRUE or FALSE
+`$lt` | `($tstat < 0)? 'TRUE' : 'FALSE'` | 0 | R argument lower.tail in pt function TRUE or FALSE
 `$sided_num` | `($sided == 'two')? 2 : 1` | 0 | one or two sided nummeric
 `$P1_lt` | `sw_distrib("cdf_student_t ($tstat, $ss)")` | 3 | one sided P-value from lower tail
 `$P_uf` | `($tstat < 0)? $P1_lt * $sided_num : (1 - $P1_lt) * $sided_num` | 3 | unfloored one or two-sided P-value from lower or upper tail
