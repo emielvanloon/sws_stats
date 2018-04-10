@@ -1,3 +1,5 @@
+# One sample t-test
+
 # Prerequisites
 * Know differences between t-tests
 * Formulate statistical hypotheses in terms of population parameters
@@ -10,7 +12,7 @@
 * Draw (one-sided) conclusion for (significant two-sided) t-test
 
 # Objective
-* Perfrom one sample t-test
+* Peform one sample t-test
 
 # Order
 1. one_sample_t_test  
@@ -210,6 +212,91 @@ Solution | Evaluation type | Definition | Answer field
 Solution 1 | eval numeric | $se | 1
 
 # 1.4. one_sample_t_test_t  
+
+## General options
+
+### Internal name
+one_sample_t_test_t
+
+### Type
+open free
+
+### Number of input fields
+1
+
+## Texts
+
+### Title
+Calculate the t-statistic
+
+### Question
+Sample size (#n#) is $ss.
+The sample mean (#\bar{Y}#) is $mean.
+The stadard error of the mean was calculated in the previous excercise.
+The degrees of freedom are calculated by #n - 1#.
+
+The mean expected under the null hypothesis (#\mu_0#) is $mu0.
+
+Determine the value of the t-statistic (#t_{df}#).
+
+Give your answer with 2 decimals.
+
+### Solution
+The t-statistic (#t_{df}#) is calculated by:
+
+\begin{aligned}
+t_{$df} = \frac{\bar{Y} - \mu_0}{SE_\bar{Y}}
+= \frac{$mean - $mu0}{$se}
+= $tstat
+\end{aligned}
+
+### Input area
+#t_{df} =# #input#
+
+## Solutions
+Solution | Evaluation type | Definition | Answer field
+--- | --- | --- | ---
+Solution 1 | eval numeric | $tstat | 1
+
 # 1.5. one_sample_t_test_P  
+
+## General options
+
+### Internal name
+one_sample_t_test_P
+
+### Type
+open free
+
+### Number of input fields
+1
+
+## Texts
+
+### Title
+Calculate the P-value
+
+### Question
+The t-statistic (#t_{df}#) and the degrees freedom (#df#) were calculated in the previous excercise.
+
+Calculate the P-value (#P#).
+
+Give your answer with 3 decimals.
+
+### Solution
+The $sided-sided P-value (#P#) can be calculated in R with:
+
+<code>pt(q = $tstat, df = $df, lower.tail = $lt) * $sided_num<\code>
+
+#P =# $P
+
+### Input area
+#P =# #input#
+
+## Solutions
+Solution | Evaluation type | Definition | Answer field
+--- | --- | --- | ---
+Solution 1 | eval numeric | $P | 1
+
 # 1.6. one_sample_t_test_comp  
 # 1.7. one_sample_t_test_con
