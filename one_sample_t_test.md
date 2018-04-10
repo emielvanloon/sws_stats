@@ -289,7 +289,7 @@ Give your answer with 3 decimals.
 ### Solution
 The $sided-sided P-value (#P#) can be calculated in R with:
 
-`pt(q = $tstat, df = $df, lower.tail = $lt) * $sided_num`
+<code>pt(q = $tstat, df = $df, lower.tail = $lt) * $sided_num</code>
 
 #P =# $P
 
@@ -354,7 +354,7 @@ radio button
 ## Texts
 
 ### Title
-~ucfirst($sided)~-sided one sample t-test conclusion
+\~ucfirst($sided)\~-sided one sample t-test conclusion
 
 ### Question
 The sample mean (#\bar{Y}#) is $mean.
@@ -374,4 +374,4 @@ An one-sided conclusion can be drawn from a significant two-sided test.
 ## Solutions
 Solution | Evaluation type | Definition | Answer field
 --- | --- | --- | ---
-Solution 1 | eval numeric | $cons | 1
+Solution 1 | eval numeric | `$cons` | 1
