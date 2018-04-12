@@ -12,6 +12,8 @@ Dollar signs ($) are in front of PHP variables.
 
 3 decimals are used for P-values and significance levels
 
+# Author tips
+
 > Decimals in Variables is only used for displaying, variables are not automatically rounded. This should be done with `round()`.
 
 > `array()` picks a random item from the array in sowiso
