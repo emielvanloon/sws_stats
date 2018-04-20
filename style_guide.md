@@ -19,3 +19,5 @@ Dollar signs ($) are in front of PHP variables.
 > `array()` picks a random item from the array in sowiso
 
 > to sum a maxima list use `sw_maxima("apply( "+" , [1, 2, 3, 4])")` this effectively changes \[1, 2, 3, 4\] into 1+2+3+4 which is then simplified into 10.
+
+> Do not use ^ for power. Use pow($a,$b) instead
