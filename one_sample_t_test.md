@@ -158,8 +158,8 @@ Statistical hypotheses are always formulated in terms of population parameters.
 #H_A: \mu $ahsign \mu_0#
 
 ### Input area
-#H_0:# #dropdown(#\bar{Y}#, #\bar{Y}_0#, #\mu#, #\mu_0#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#\bar{Y}#, #\bar{Y}_0#, #\mu#, #\mu_0#)#  
-#H_A:# #dropdown(#\bar{Y}#, #\bar{Y}_0#, #\mu#, #\mu_0#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#\bar{Y}#, #\bar{Y}_0#, #\mu#, #\mu_0#)#
+#H_0:# #dropdown(#\bar{Y}#, #\bar{Y}\_0#, #\mu#, #\mu_0#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#\bar{Y}#, #\bar{Y}\_0#, #\mu#, #\mu_0#)#  
+#H_A:# #dropdown(#\bar{Y}#, #\bar{Y}\_0#, #\mu#, #\mu_0#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#\bar{Y}#, #\bar{Y}\_0#, #\mu#, #\mu_0#)#
 
 ## Solutions
 Solution | Evaluation type | Definition | Answer field
