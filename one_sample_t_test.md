@@ -35,13 +35,13 @@ Alias | Definition | Decimals | Author comments
 `$sd` | `round(sw_descriptive("std1($ryi)"), 1)` | 1 | sample standard deviation rounded to 1 decimal
 `$mu0` | `100` | 1 | mean expected under null hypothesis
 `$alpha` | `array(0.01, 0.05)` | 2 | significance level
+`$sided` | `array('one', 'two')` | 0 | one or two sided
 `$alternative` | `($sided == 'two')? 'different from' : (($mean < $mu0)? 'less than' : 'greater than')` | 0 | text for alternative hypothesis
 `$ahs` | `($sided == 'two')? 2 : (($mean < $mu0)? 3 : 4)` | 0 | solution to alternative hypothesis
 `$ahsign` | `($sided == 'two')? '\neq' : (($mean < $mu0)? '<' : '>')` | 0 | latex sign for alternative hypothesis
 `$se` | `round($sd / sqrt($ss), 1)` | 1 | standard error of the mean rounded to 1 decimal
 `$df` | `$ss - 1` | 0 | degrees of freedom
 `$tstat` | `round(($mean - $mu0) / $se, 2)` | 2 | t-statistic  rounded to 2 decimals
-`$sided` | `array('one', 'two')` | 0 | one or two sided
 `$lt` | `($tstat < 0)? 'TRUE' : 'FALSE'` | 0 | R argument lower.tail in pt function TRUE or FALSE
 `$sided_num` | `($sided == 'two')? 2 : 1` | 0 | one or two sided nummeric
 `$P1_lt` | `sw_distrib("cdf_student_t ($tstat, $ss)")` | 3 | one sided P-value from lower tail
