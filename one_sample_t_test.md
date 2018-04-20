@@ -190,8 +190,7 @@ open free
 Calculate the standard error of the mean
 
 ### Question
-Sample size (#n#) is $ss.
-
+Sample size (#n#) is $ss.  
 The sample standard deviation (#s#) is $sd.
 
 Determine the value of the standard error of the mean (#SE_\bar{Y}#).
