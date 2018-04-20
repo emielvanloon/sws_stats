@@ -162,14 +162,14 @@ Statistical hypotheses are always formulated in terms of population parameters.
 #H_A:# #dropdown(#\bar{Y}#, #\bar{Y}\_0#, #\mu#, #\mu_0#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#\bar{Y}#, #\bar{Y}\_0#, #\mu#, #\mu_0#)#
 
 ## Solutions
-Solution | Evaluation type | Definition | Answer field  
---- | --- | --- | ---  
-Solution 1 | eval normal | 3 | 1  
-Solution 2 | eval normal | 1 | 2  
-Solution 3 | eval normal | 4 | 3  
+Solution | Evaluation type | Definition | Answer field
+--- | --- | --- | ---
+Solution 1 | eval normal | 3 | 1
+Solution 2 | eval normal | 1 | 2
+Solution 3 | eval normal | 4 | 3
 Solution 4 | eval normal | 3 | 4  
-Solution 5 | eval normal | `$ahs` | 5  
-Solution 6 | eval normal | 4 | 6  
+Solution 5 | eval normal | `$ahs` | 5
+Solution 6 | eval normal | 4 | 6
 
 # 1.3. one_sample_t_test_SE 
 
