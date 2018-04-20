@@ -235,7 +235,7 @@ Calculate the t-statistic
 ### Question
 Sample size (#n#) is $ss.
 The sample mean (#\bar{Y}#) is $mean.
-The stadard error of the mean was calculated in the previous excercise.
+The stadard error of the mean was calculated in the previous exercise.
 The degrees of freedom are calculated by #n - 1#.
 
 The mean expected under the null hypothesis (#\mu_0#) is $mu0.
@@ -280,7 +280,7 @@ open free
 Calculate the P-value
 
 ### Question
-The t-statistic (#t_{df}#) and the degrees freedom (#df#) were calculated in the previous excercise.
+The t-statistic (#t_{df}#) and the degrees freedom (#df#) were calculated in the previous exercise.
 
 Calculate the P-value (#P#).
 
@@ -322,7 +322,7 @@ Compare P-value to significance level
 ### Question
 The significance level (#\alpha#) is $alpha.
 
-The P-value (#P#) was calculated in the previous excercise.
+The P-value (#P#) was calculated in the previous exercise.
 
 Compare the P-value (#P#) to the significance level (#\alpha#).
 
