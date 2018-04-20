@@ -44,9 +44,9 @@ Alias | Definition | Decimals | Author comments
 `$alternative` | `($sided == 'two')? 'different from' : (($mean < $mu0)? 'less than' : 'greater than')` | 0 | text for alternative hypothesis
 `$ahs` | `($sided == 'two')? 2 : (($mean1 < $mean2)? 3 : 4)` | 0 | solution to alternative hypothesis dropdown
 `$ahsign` | `($sided == 'two')? '\neq' : (($mean1 < $mean2)? '<' : '>')` | 0 | LaTeX sign for alternative hypothesis
-`$df1` | `$ss1 - 1` | degrees of freedom of first sample
-`$df2` | `$ss2 - 1` | degrees of freedom of sencond sample
-`$df` | `$df1 + $df2` | total degrees of freedom
+`$df1` | `$ss1 - 1` | 0 | degrees of freedom of first sample
+`$df2` | `$ss2 - 1` | 0 | degrees of freedom of sencond sample
+`$df` | `$df1 + $df2` | 0 | total degrees of freedom
 `$s2p` | `round(($df1 * pow($sd1,2) + $df2 * pow($sd2,2))/$df, 1)` | 1 | pooled variance rounded to 1 decimal
 `$se` | `round(sqrt($s2p * (1/$ss1 + 1/$ss2)), 1)` | 1 | standard error of the difference between two sample means rounded to 1 decimal
 `$tstat` | `round(($mean1 - $mean2) / $se, 2)` | 2 | t-statistic  rounded to 2 decimals
