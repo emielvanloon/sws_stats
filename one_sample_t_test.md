@@ -15,14 +15,14 @@
 * Peform one sample t-test
 
 # Order
-[1. one_sample_t_test](#1-one_sample_t_test)
-  [1.1. one_sample_t_test_intro](#1.1-one_sample_t_test_intro)  
-  [1.2. one_sample_t_test_H](#1.2-one_sample_t_test_H)  
-  [1.3. one_sample_t_test_SE](#1.3-one_sample_t_test_SE)  
-  [1.4. one_sample_t_test_t](#1.4-one_sample_t_test_t)  
-  [1.5. one_sample_t_test_P](#1.5-one_sample_t_test_P)  
-  [1.6. one_sample_t_test_comp](#1.6-one_sample_t_test_comp)  
-  [1.7. one_sample_t_test_con](#1.7-one_sample_t_test_con)
+1. one_sample_t_test  
+  1.1. one_sample_t_test_intro  
+  1.2. one_sample_t_test_H  
+  1.3. one_sample_t_test_SE  
+  1.4. one_sample_t_test_t  
+  1.5. one_sample_t_test_P  
+  1.6. one_sample_t_test_comp  
+  1.7. one_sample_t_test_con  
   
 # Variables
 Alias | Definition | Decimals | Author comments
@@ -162,14 +162,14 @@ Statistical hypotheses are always formulated in terms of population parameters.
 #H_A:# #dropdown(#\bar{Y}#, #\bar{Y}\_0#, #\mu#, #\mu_0#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#\bar{Y}#, #\bar{Y}\_0#, #\mu#, #\mu_0#)#
 
 ## Solutions
-Solution | Evaluation type | Definition | Answer field
---- | --- | --- | ---
-Solution 1 | eval normal | 3 | 1
-Solution 2 | eval normal | 1 | 2
-Solution 3 | eval normal | 4 | 3
-Solution 4 | eval normal | 3 | 4
-Solution 5 | eval normal | `$ahs` | 5
-Solution 6 | eval normal | 4 | 6
+Solution | Evaluation type | Definition | Answer field  
+--- | --- | --- | ---  
+Solution 1 | eval normal | 3 | 1  
+Solution 2 | eval normal | 1 | 2  
+Solution 3 | eval normal | 4 | 3  
+Solution 4 | eval normal | 3 | 4  
+Solution 5 | eval normal | `$ahs` | 5  
+Solution 6 | eval normal | 4 | 6  
 
 # 1.3. one_sample_t_test_SE 
 
