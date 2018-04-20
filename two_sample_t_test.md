@@ -147,12 +147,12 @@ Solution | Definition
 --- | ---
 Solution 1 | 2
 
-# 1.2. one_sample_t_test_H
+# 1.2. two_sample_t_test_H
 
 ## General options
 
 ### Internal name
-one_sample_t_test_H
+two_sample_t_test_H
 
 ### Type
 open free
@@ -166,19 +166,19 @@ open free
 Formulate hypotheses
 
 ### Question
-We want to test whether the mean (#\bar{Y}#) is significantly $alternative the mean expected under the null hypothesis (#\mu_0#).
+We want to test whether the first sample mean (#\bar{Y}\_1#) is significantly $alternative the second sample mean (#\bar{Y}\_2#).
 
 Formulate the null hypothesis (#H_0#) and the alternative hypothesis (#H_A#).
 
 ### Solution
 Statistical hypotheses are always formulated in terms of population parameters.
 
-#H_0: \mu = \mu_0#  
-#H_A: \mu $ahsign \mu_0#
+#H_0: \mu_1 = \mu_2#
+#H_A: \mu_1 $ahsign \mu_2#
 
 ### Input area
-#H_0:# #dropdown(#\bar{Y}#, #\bar{Y}_0#, #\mu#, #\mu_0#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#\bar{Y}#, #\bar{Y}_0#, #\mu#, #\mu_0#)#  
-#H_A:# #dropdown(#\bar{Y}#, #\bar{Y}_0#, #\mu#, #\mu_0#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#\bar{Y}#, #\bar{Y}_0#, #\mu#, #\mu_0#)#
+#H_0:# #dropdown(#\bar{Y}\_1#, #\bar{Y}\_2#, #\mu_1#, #\mu_2#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#\bar{Y}\_1#, #\bar{Y}\_2#, #\mu_1#, #\mu_2#)#
+#H_A:# #dropdown(#\bar{Y}\_1#, #\bar{Y}\_2#, #\mu_1#, #\mu_2#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#\bar{Y}\_1#, #\bar{Y}\_2#, #\mu_1#, #\mu_2#)#
 
 ## Solutions
 Solution | Evaluation type | Definition | Answer field
@@ -190,12 +190,12 @@ Solution 4 | eval normal | 3 | 4
 Solution 5 | eval normal | `$ahs` | 5
 Solution 6 | eval normal | 4 | 6
 
-# 1.3. one_sample_t_test_SE 
+# 1.3. two_sample_t_test_sp2 
 
 ## General options
 
 ### Internal name
-one_sample_t_test_SE
+two_sample_t_test_sp2
 
 ### Type
 open free
@@ -206,39 +206,91 @@ open free
 ## Texts
 
 ### Title
-Calculate the standard error of the mean
+Calculate the pooled variance
 
 ### Question
-Sample size (#n#) is $ss. 
-The sample standard deviation (#s#) is $sd.
+The first sample size (#n_1#) is $ss1.
+The second sample size (#n_2#) is $ss2.
 
-Determine the value of the standard error of the mean (#SE_\bar{Y}#).
+The first degrees of freedom (#df_1#) are calculated by #n_1 - 1#.
+The second degrees of freedom (#df_2#) are calculated by #n_2 - 1#.
+The total degrees of freedom (#df#) are calulcated by #df_1 + df_2#.
+
+The first sample standard deviation (#s_1#) is $sd1.
+The second sample standard deviation (#s_2#) is $sd2.
+
+Determine the value of the pooled variance (#s^2_p#).
 
 Give your answer with 1 decimal.
 
 ### Solution
-The standard error of the mean (#SE_\bar{Y}#) is calculated by:
+The pooled variance (#s^2_p#) is calculated by:
 
 \begin{aligned}
-SE_\bar{Y} = \frac{s}{\sqrt{n}}
-= \frac{$sd}{\sqrt{$ss}}
+s^2_p = \frac{df_1 \cdot s^2_1 + df_2 \cdot s^2_2}{df}
+= \frac{$df1 \cdot $var1 + $df2 \cdot $var2}{$df}
+= $s2p
+\end{aligned}
+
+### Input area
+#s^2_p# = #input#
+
+## Solutions
+Solution | Evaluation type | Definition | Answer field
+--- | --- | --- | ---
+Solution 1 | eval numeric | `$sp2` | 1
+
+# 1.4. two_sample_t_test_SE 
+
+## General options
+
+### Internal name
+two_sample_t_test_SE
+
+### Type
+open free
+
+### Number of input fields
+1
+
+## Texts
+
+### Title
+Calculate the standard error
+
+### Question
+The first sample size (#n_1#) is $ss1.
+The second sample size (#n_2#) is $ss2.
+
+The pooled variance (#s^2_p#) was calculated in the previous excercise.
+
+Determine the value of the standard error of the difference between two sample means (#SE_{\bar{Y}_1-\bar{Y}_2}#).
+
+Give your answer with 1 decimal.
+
+### Solution
+The standard error of the difference between two sample means (#SE_{\bar{Y}_1-\bar{Y}_2}#) is calculated by:
+
+\begin{aligned}
+SE_{\bar{Y}\_1-\bar{Y}\_2} = \sqrt{s^2_p \cdot (\frac{1}{n_1} + \frac{1}{n_2})}
+= \sqrt{$s2p \cdot (\frac{1}{$ss1} + \frac{1}{$ss2})}
 = $se
 \end{aligned}
 
 ### Input area
-#SE_\bar{Y} =# #input#
+#SE_{\bar{Y}\_1-\bar{Y}\_2}# = #input#
 
 ## Solutions
 Solution | Evaluation type | Definition | Answer field
 --- | --- | --- | ---
 Solution 1 | eval numeric | `$se` | 1
 
-# 1.4. one_sample_t_test_t  
+# 1.5. two_sample_t_test_t  
 
 ## General options
 
 ### Internal name
-one_sample_t_test_t
+two_sample_t_test_t
 
 ### Type
 open free
@@ -252,12 +304,10 @@ open free
 Calculate the t-statistic
 
 ### Question
-Sample size (#n#) is $ss.
-The sample mean (#\bar{Y}#) is $mean.
-The stadard error of the mean was calculated in the previous excercise.
-The degrees of freedom are calculated by #n - 1#.
+The first sample mean (#\bar{Y}\_1#) is $mean1.
+The second sample mean (#\bar{Y}\_2#) is $mean2.
 
-The mean expected under the null hypothesis (#\mu_0#) is $mu0.
+The standard error (#SE_{\bar{Y}\_1-\bar{Y}\_2}#) and the degrees of freedom (#df#) were calculated in previous exercises.
 
 Determine the value of the t-statistic (#t_{df}#).
 
@@ -267,8 +317,8 @@ Give your answer with 2 decimals.
 The t-statistic (#t_{df}#) is calculated by:
 
 \begin{aligned}
-t_{$df} = \frac{\bar{Y} - \mu_0}{SE_\bar{Y}}
-= \frac{$mean - $mu0}{$se}
+t_{$df} = \frac{\bar{Y}\_1 - \bar{Y}\_2}{SE_{\bar{Y}\_1-\bar{Y}\_2}}
+=\frac{$mean1 - $mean2}{$se}
 = $tstat
 \end{aligned}
 
@@ -280,12 +330,12 @@ Solution | Evaluation type | Definition | Answer field
 --- | --- | --- | ---
 Solution 1 | eval numeric | `$tstat` | 1
 
-# 1.5. one_sample_t_test_P  
+# 1.6. two_sample_t_test_P  
 
 ## General options
 
 ### Internal name
-one_sample_t_test_P
+two_sample_t_test_P
 
 ### Type
 open free
@@ -299,7 +349,7 @@ open free
 Calculate the P-value
 
 ### Question
-The t-statistic (#t_{df}#) and the degrees freedom (#df#) were calculated in the previous excercise.
+The t-statistic (#t_{df}#) and the degrees freedom (#df#) were calculated in previous exercises.
 
 Calculate the P-value (#P#).
 
@@ -320,12 +370,12 @@ Solution | Evaluation type | Definition | Answer field
 --- | --- | --- | ---
 Solution 1 | eval numeric | `$P` | 1
 
-# 1.6. one_sample_t_test_comp  
+# 1.7. two_sample_t_test_comp  
 
 ## General options
 
 ### Internal name
-one_sample_t_test_comp
+two_sample_t_test_comp
 
 ### Type
 open free
@@ -336,12 +386,12 @@ open free
 ## Texts
 
 ### Title
-Compare P-value to significance level
+Compare the P-value to the significance level
 
 ### Question
 The significance level (#\alpha#) is $alpha.
 
-The P-value (#P#) was calculated in the previous excercise.
+The P-value (#P#) was calculated in the previous exercise.
 
 Compare the P-value (#P#) to the significance level (#\alpha#).
 
@@ -357,12 +407,12 @@ Solution | Evaluation type | Definition | Answer field
 --- | --- | --- | ---
 Solution 1 | eval numeric | `$comps` | 1
 
-# 1.7. one_sample_t_test_con
+# 1.8. two_sample_t_test_con
 
 ## General options
 
 ### Internal name
-one_sample_t_test_con
+two_sample_t_test_con
 
 ### Type
 radio button
@@ -373,22 +423,22 @@ radio button
 ## Texts
 
 ### Title
-\~ucfirst($sided)\~-sided one sample t-test conclusion
+\~ucfirst($sided)\~-sided two sample t-test conclusion
 
 ### Question
-The sample mean (#\bar{Y}#) is $mean.
-The mean expected under the null hypothesis (#\mu_0#) is $mu0.
+The first sample mean (#\bar{Y}\_1#) is $mean1.
+The second sample mean (#\bar{Y}\_2#) is $mean2.
 
-Give the conclusion of the $sided-sided one sample t-test.
+Give the conclusion of the $sided-sided two sample t-test.
 
 ### Solution
 An one-sided conclusion can be drawn from a significant two-sided test.
 
 ### Options
-1. The mean (#\bar{Y}#) is <strong>not</strong> significantly different from $mu0 (#\mu_0#).
-2. The mean (#\bar{Y}#) is significantly different from $mu0 (#\mu_0#).
-3. The mean (#\bar{Y}#) is significantly less than $mu0 (#\mu_0#).
-4. The mean (#\bar{Y}#) is significantly greater than $mu0 (#\mu_0#).
+1. The first sample mean (#\bar{Y}\_1#) is <strong>not</strong> significantly different from the second sample mean (#\bar{Y}\_2#).
+2. The first sample mean (#\bar{Y}\_1#) is significantly different from the second sample mean (#\bar{Y}\_2#).
+3. The first sample mean (#\bar{Y}\_1#) is significantly less than the second sample mean (#\bar{Y}\_2#).
+4. The first sample mean (#\bar{Y}\_1#) is significantly greater than the second sample mean (#\bar{Y}\_2#).
 
 ## Solutions
 Solution | Evaluation type | Definition | Answer field
