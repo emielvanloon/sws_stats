@@ -317,7 +317,7 @@ open free
 ## Texts
 
 ### Title
-Compare P-value to significance level
+Compare the P-value to the significance level
 
 ### Question
 The significance level (#\alpha#) is $alpha.
