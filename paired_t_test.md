@@ -33,7 +33,7 @@ Alias | Definition | Decimals | Author comments
 `$sigma` | `sw_distrib("random_continuous_uniform(10, 50)")`| 1 | population standard deviation is random float between 10 and 50 for both populations
 `$ryi1` | `sw_distrib("random_normal($mu1, $sigma, $ss)")` | 1 | first random sample from normally distributed population
 `$ryi2` | `sw_distrib("random_normal($mu2, $sigma, $ss)")` | 1 | second random sample from normally distributed population
-`$dif` | `sw_maxima_native("$ryi1 - $ryi2")` | 1 | differences
+`$dif` | `sw_maxima_native("$ryi1 - $ryi2")` | 1 | differences of paired measurements
 `$meand` | `round(sw_descriptive("mean($dif)"), 1)` | 1 | mean of differences rounded to 1 decimal
 `$sd` | `round(sw_descriptive("std1($dif)"), 1)` | 1 | standard deviation of differences rounded to 1 decimal
 `$alpha` | `array(0.01, 0.05)` | 2 | significance level
