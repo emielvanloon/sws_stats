@@ -38,7 +38,7 @@ Alias | Definition | Decimals | Author comments
 `$sided` | `array('one', 'two')` | 0 | one or two sided
 `$alternative` | `($sided == 'two')? 'different from' : (($mean < $mu0)? 'less than' : 'greater than')` | 0 | text for alternative hypothesis
 `$ahs` | `($sided == 'two')? 2 : (($mean < $mu0)? 3 : 4)` | 0 | solution to alternative hypothesis dropdown
-`$ahsign` | `($sided == 'two')? '\neq' : (($mean < $mu0)? '<' : '>')` | 0 | latex sign for alternative hypothesis
+`$ahsign` | `($sided == 'two')? '\neq' : (($mean < $mu0)? '<' : '>')` | 0 | LaTeX sign for alternative hypothesis
 `$se` | `round($sd / sqrt($ss), 1)` | 1 | standard error of the mean rounded to 1 decimal
 `$df` | `$ss - 1` | 0 | degrees of freedom
 `$tstat` | `round(($mean - $mu0) / $se, 2)` | 2 | t-statistic  rounded to 2 decimals
@@ -48,7 +48,7 @@ Alias | Definition | Decimals | Author comments
 `$P_uf` | `($tstat < 0)? $P1_lt * $sided_num : (1 - $P1_lt) * $sided_num` | 3 | unfloored one or two-sided P-value from lower or upper tail
 `$P` | `($P_uf > 1)? floor($P_uf) : $P_uf` | 3 | P-value floored in case it exceeds 1
 `$comps` | `($P < $alpha)? 1 : 2` | 0 | solution to P and alpha comparison
-`$compsign` | `($P < $alpha)? '<' : '>'` | 0 | latex sign for P and alpha comparison
+`$compsign` | `($P < $alpha)? '<' : '>'` | 0 | LateX sign for P and alpha comparison
 `$cons` | `($P > $alpha)? 1 : (($mean < $mu0)? 3 : 4)` | 0 | solution to conclusion multiple choice question
 
 # 1. one_sample_t_test
