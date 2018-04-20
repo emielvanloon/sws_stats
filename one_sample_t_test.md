@@ -37,7 +37,7 @@ Alias | Definition | Decimals | Author comments
 `$alpha` | `array(0.01, 0.05)` | 2 | significance level
 `$sided` | `array('one', 'two')` | 0 | one or two sided
 `$alternative` | `($sided == 'two')? 'different from' : (($mean < $mu0)? 'less than' : 'greater than')` | 0 | text for alternative hypothesis
-`$ahs` | `($sided == 'two')? 2 : (($mean < $mu0)? 3 : 4)` | 0 | solution to alternative hypothesis
+`$ahs` | `($sided == 'two')? 2 : (($mean < $mu0)? 3 : 4)` | 0 | solution to alternative hypothesis dropdown
 `$ahsign` | `($sided == 'two')? '\neq' : (($mean < $mu0)? '<' : '>')` | 0 | latex sign for alternative hypothesis
 `$se` | `round($sd / sqrt($ss), 1)` | 1 | standard error of the mean rounded to 1 decimal
 `$df` | `$ss - 1` | 0 | degrees of freedom
