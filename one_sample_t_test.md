@@ -200,10 +200,10 @@ Give your answer with 1 decimal.
 ### Solution
 The standard error of the mean (#SE_\bar{Y}#) is calculated by:
 
-\begin{aligned}
+\begin{aligned}  
 SE_\bar{Y} = \frac{s}{\sqrt{n}}
 = \frac{$sd}{\sqrt{$ss}}
-= $se
+= $se  
 \end{aligned}
 
 ### Input area
@@ -233,12 +233,12 @@ open free
 Calculate the t-statistic
 
 ### Question
-Sample size (#n#) is $ss.
-The sample mean (#\bar{Y}#) is $mean.
-The stadard error of the mean was calculated in the previous exercise.
-The degrees of freedom are calculated by #n - 1#.
-
+Sample size (#n#) is $ss.  
+The sample mean (#\bar{Y}#) is $mean.  
+The degrees of freedom are calculated by #n - 1#.  
 The mean expected under the null hypothesis (#\mu_0#) is $mu0.
+
+The stadard error of the mean was calculated in the previous exercise.
 
 Determine the value of the t-statistic (#t_{df}#).
 
