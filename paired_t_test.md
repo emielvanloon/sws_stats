@@ -146,7 +146,7 @@ open free
 Formulate hypotheses
 
 ### Question
-We want to test whether the mean difference of paired measurements equals 0.
+We want to test whether the mean difference of paired measurements is $alternative 0.
 
 Formulate the null hypothesis (#H_0#) and the alternative hypothesis (#H_A#).
 
