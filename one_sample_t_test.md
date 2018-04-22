@@ -247,11 +247,11 @@ Give your answer with 2 decimals.
 ### Solution
 The t-statistic (#t_{df}#) is calculated by:
 
-\begin{aligned}
+\begin{aligned}  
 t_{$df} = \frac{\bar{Y} - \mu_0}{SE_\bar{Y}}
 = \frac{$mean - $mu0}{$se}
 = $tstat
-\end{aligned}
+\end{aligned}  
 
 ### Input area
 #t_{df} =# #input#
@@ -291,7 +291,7 @@ The $sided-sided P-value (#P#) can be calculated in R with:
 
 <code>pt(q = $tstat, df = $df, lower.tail = $lt) * $sided_num</code>
 
-#P =# $P
+#P = $P#
 
 ### Input area
 #P =# #input#
@@ -336,7 +336,7 @@ Compare the P-value (#P#) to the significance level (#\alpha#).
 ## Solutions
 Solution | Evaluation type | Definition | Answer field
 --- | --- | --- | ---
-Solution 1 | eval numeric | `$comps` | 1
+Solution 1 | eval normal | `$comps` | 1
 
 # 1.7. one_sample_t_test_con
 
@@ -372,6 +372,6 @@ An one-sided conclusion can be drawn from a significant two-sided test.
 4. The mean (#\bar{Y}#) is significantly greater than $mu0 (#\mu_0#).
 
 ## Solutions
-Solution | Evaluation type | Definition | Answer field
---- | --- | --- | ---
-Solution 1 | eval numeric | `$cons` | 1
+Solution | Definition
+--- | --- 
+Solution 1 | `$cons`
