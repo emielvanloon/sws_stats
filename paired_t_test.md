@@ -190,15 +190,15 @@ Calculate the standard error
 Sample size (#n#) is $ss.  
 The standard deviation of the differences (#s_\bar{d}#) is $sd.
 
-Determine the value of the standard error (#SE_\bar{d}#).
+Determine the value of the standard error (#SE_{\bar{d}}#).
 
 Give your answer with 1 decimal.
 
 ### Solution
-The standard error of the mean (#SE_\bar{d}#) is calculated by:
+The standard error of the mean (#SE_{\bar{d}}#) is calculated by:
 
 \begin{aligned}  
-SE_\bar{d} = \frac{s_\bar{d}}{\sqrt{n}} = \frac{$sd}{\sqrt{$ss}} = $se
+SE_{\bar{d}} = \frac{s_{\bar{d}}}{\sqrt{n}} = \frac{$sd}{\sqrt{$ss}} = $se
 \end{aligned}
 
 ### Input area
@@ -231,7 +231,7 @@ Calculate the t-statistic
 The mean of the differences (#\bar{d}#) is $meand.  
 The degrees of freedom are calculated by #n - 1#.  
 
-The standard error of the differences (#SE_{\bar{d}#) was calculated in the previous exercise.
+The standard error of the differences (#SE_{\bar{d}}#) was calculated in the previous exercise.
 
 Determine the value of the t-statistic (#t_{df}#).
 
@@ -241,7 +241,7 @@ Give your answer with 2 decimals.
 The t-statistic (#t_{df}#) is calculated by:
 
 \begin{aligned}  
-t_{$df} = \frac{\bar{d} - 0}{SE_\bar{d}} = \frac{$meand - 0}{$se} = $tstat  
+t_{$df} = \frac{\bar{d} - 0}{SE_{\bar{d}}} = \frac{$meand - 0}{$se} = $tstat  
 \end{aligned}
 
 ### Input area
