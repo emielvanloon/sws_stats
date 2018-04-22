@@ -35,7 +35,7 @@ Alias | Definition | Decimals | Author comments
 `$sd` | `round(sw_descriptive("std1($ryi)"), 1)` | 1 | sample standard deviation rounded to 1 decimal
 `$mu0` | `100` | 1 | mean expected under null hypothesis
 `$alpha` | `array(0.01, 0.05)` | 2 | significance level
-`$sided` | `array('one', 'two')` | 0 | one or two sided
+`$sided` | `array('one', 'two')` | 0 | one or two sided in text
 `$alternative` | `($sided == 'two')? 'different from' : (($mean < $mu0)? 'less than' : 'greater than')` | 0 | text for alternative hypothesis
 `$ahs` | `($sided == 'two')? 2 : (($mean < $mu0)? 3 : 4)` | 0 | solution to alternative hypothesis dropdown
 `$ahsign` | `($sided == 'two')? '\neq' : (($mean < $mu0)? '<' : '>')` | 0 | LaTeX sign for alternative hypothesis
