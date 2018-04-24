@@ -27,9 +27,9 @@ Alias | Definition | Decimals | Author comments
 `$sigmares` | `$sigmay * sqrt(1 - pow($cor,2))` | 1 | standard deviation of residual population
 `$res` | `sw_distrib("random_normal($alpha, $sigmares, $ss)")` | 1 | random sample of residuals
 `$rxi` | `sw_distrib("map(lambda([x], float(round(x*10)/10)), random_normal($mux, $sigmax, $ss))")` | 1 | random sample of X rounded to 1 decimal
-`$ryi` | `sw_maxima_native("map(lambda([x], float(round(x*10)/10)), $slope * $rxi + $res)")` | 1 | random sample of Y rounded to 1 decimal
+`$ryi` | `sw_maxima_native("map(lambda([x], float(round(x*10)/10)), $beta * $rxi + $res)")` | 1 | random sample of Y rounded to 1 decimal
 `$rxi_fm` | `substr($rxi, 1, -1)` | 1 | data for X formatted for text
-`$ryi_fm` | `substr($rxi, 1, -1)` | 1 | data for Y formatted for text
+`$ryi_fm` | `substr($ryi, 1, -1)` | 1 | data for Y formatted for text
 `$scatter_plot` | `sw_draw("color = black, point_type = filled_circle, points($rxi, $ryi), xlabel = \"X\", ylabel = \"Y\"")` | 0 | scatterplot of X and Y
 `meanx` | `sw_descriptive("mean($rxi)")` | 1 | sample mean of X
 `meany` | `sw_descriptive("mean($ryi)")` | 1 | sample mean of Y
