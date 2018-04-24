@@ -17,20 +17,20 @@
 Alias | Definition | Decimals | Author comments
 --- | --- | --- | ---
 `$ss` | `rand(30, 50)` | 0 | sample size is a random integer between 30 and 50
-`$mux` | `sw_distrib("random_continuous_uniform(80, 100)")` | 1 | population mean of x
-`$muy` |  `sw_distrib("random_continuous_uniform(100, 120)")` | 1 | population mean of y
-`$sigmax` | `sw_distrib("random_continuous_uniform(10, 50)")` | 1 | population standard deviation of x
-`sigmay` | `sw_distrib("random_continuous_uniform(10, 50)")` | 1 | population standard deviation of y
+`$mux` | `sw_distrib("random_continuous_uniform(80, 100)")` | 1 | population mean of X
+`$muy` |  `sw_distrib("random_continuous_uniform(100, 120)")` | 1 | population mean of Y
+`$sigmax` | `sw_distrib("random_continuous_uniform(10, 50)")` | 1 | population standard deviation of X
+`sigmay` | `sw_distrib("random_continuous_uniform(10, 50)")` | 1 | population standard deviation of Y
 `$cor` | `sw_distrib("random_continuous_uniform(-1, 1)")` | 2 | negative / positive correlation coefficient
 `$beta` | `$cor * $sigmay / $sigmax` | 2 | slope of population regression line
 `$alpha` | `$muy - $beta * $mux` | 2 | intercept of population regression line
 `$sigmares` | `$sigmay * sqrt(1 - pow($cor,2))` | 1 | standard deviation of residual population
 `$res` | `sw_distrib("random_normal($alpha, $sigmares, $ss)")` | 1 | random sample of residuals
-`$rxi` | `sw_distrib("map(lambda([x], float(round(x*10)/10)), random_normal($mux, $sigmax, $ss))")` | 1 | random sample of x rounded to 1 decimal
-`$ryi` | `sw_maxima_native("map(lambda([x], float(round(x*10)/10)), $slope * $rxi + $res)")` | 1 | random sample of y rounded to 1 decimal
+`$rxi` | `sw_distrib("map(lambda([x], float(round(x*10)/10)), random_normal($mux, $sigmax, $ss))")` | 1 | random sample of X rounded to 1 decimal
+`$ryi` | `sw_maxima_native("map(lambda([x], float(round(x*10)/10)), $slope * $rxi + $res)")` | 1 | random sample of Y rounded to 1 decimal
 `$rxi_fm` | `substr($rxi, 1, -1)` | 1 | data for X formatted for text
 `$ryi_fm` | `substr($rxi, 1, -1)` | 1 | data for Y formatted for text
-`$scatter_plot` | `sw_draw("color = black, point_type = filled_circle, points($rxi, $ryi), xlabel = \"X\", ylabel = \"Y\"")` | 0 | scatterplot of x and y
+`$scatter_plot` | `sw_draw("color = black, point_type = filled_circle, points($rxi, $ryi), xlabel = \"X\", ylabel = \"Y\"")` | 0 | scatterplot of X and Y
 `meanx` | `sw_descriptive("mean($rxi)")` | 1 | sample mean of X
 `meany` | `sw_descriptive("mean($ryi)")` | 1 | sample mean of Y
 `$SP` | `sw_maxima_native("apply(\"+\", ($rxi - $meanx) * ($ryi - $meany))")` | 1 | sample sum of products
