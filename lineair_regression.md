@@ -21,7 +21,7 @@ Alias | Definition | Decimals | Author comments
 `$muy` |  `sw_distrib("random_continuous_uniform(100, 120)")` | 1 | population mean of Y
 `$sigmax` | `sw_distrib("random_continuous_uniform(10, 50)")` | 1 | population standard deviation of X
 `sigmay` | `sw_distrib("random_continuous_uniform(10, 50)")` | 1 | population standard deviation of Y
-`$cor` | `sw_distrib("random_continuous_uniform(-1, 1)")` | 2 | negative / positive correlation coefficient
+`$cor` | `sw_distrib("random_continuous_uniform(-1, 1)")` | 2 | negative or positive correlation coefficient
 `$beta` | `$cor * $sigmay / $sigmax` | 2 | slope of population regression line
 `$alpha` | `$muy - $beta * $mux` | 2 | intercept of population regression line
 `$sigmares` | `$sigmay * sqrt(1 - pow($cor,2))` | 1 | standard deviation of residual population
