@@ -36,8 +36,8 @@ Alias | Definition | Decimals | Author comments
 `$SP` | `sw_maxima_native("apply(\"+\", ($rxi - $meanx) * ($ryi - $meany))")` | 1 | sum of products
 `$SSx` | `sw_descriptive("var($rxi) * $ss")` | 1 | sum of squares of X
 `$SSy` | `sw_descriptive("var($ryi) * $ss")` | 1 | sum of squares of Y
-`$slope` | `round($SP / $SSx, 2)` | sample slope rounded to 2 decimals
-`$intercept` | `round($meany - $slope * $meanx, 2)` | sample intercept rounded to 2 decimals
+`$slope` | `round($SP / $SSx, 2)` | 2 | sample slope rounded to 2 decimals
+`$intercept` | `round($meany - $slope * $meanx, 2)` | 2 | sample intercept rounded to 2 decimals
 `$plot` | `sw_draw("color = blue, explicit($meany, x, lmin($rxi), lmax($rxi)), color = red, explicit($wa + $v * x, x, lmin($rxi), lmax($rxi)), color = black, point_type = filled_circle, points($rxi, $ryi), xlabel = \"X\", ylabel = \"Y\"")` | 0 | scatterplot with null model and linear model
 `$df` | `$ss - 2` | 0 | degrees of freedom
 `$MSres` | `($SSy - $slope * $SP) / $df` | 1 | mean square residual
