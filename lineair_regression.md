@@ -33,14 +33,14 @@ Alias | Definition | Decimals | Author comments
 `$scatter_plot` | `sw_draw("color = black, point_type = filled_circle, points($rxi, $ryi), xlabel = \"X\", ylabel = \"Y\"")` | 0 | scatterplot of X and Y
 `$meanx` | `sw_descriptive("mean($rxi)")` | 1 | sample mean of X
 `$meany` | `sw_descriptive("mean($ryi)")` | 1 | sample mean of Y
-`$SP` | `sw_maxima_native("apply(\"+\", ($rxi - $meanx) * ($ryi - $meany))")` | 1 | sample sum of products
-`$SSx` | `sw_descriptive("var($rxi) * $ss")` | 1 | sample sum of squares of X
-`$SSy` | `sw_descriptive("var($ryi) * $ss")` | 1 | sample sum of squares of Y
+`$SP` | `sw_maxima_native("apply(\"+\", ($rxi - $meanx) * ($ryi - $meany))")` | 1 | sum of products
+`$SSx` | `sw_descriptive("var($rxi) * $ss")` | 1 | sum of squares of X
+`$SSy` | `sw_descriptive("var($ryi) * $ss")` | 1 | sum of squares of Y
 `$slope` | `round($SP / $SSx, 2)` | sample slope rounded to 2 decimals
 `$intercept` | `round($meany - $slope * $meanx, 2)` | sample intercept rounded to 2 decimals
 `$plot` | `sw_draw("color = blue, explicit($meany, x, lmin($rxi), lmax($rxi)), color = red, explicit($wa + $v * x, x, lmin($rxi), lmax($rxi)), color = black, point_type = filled_circle, points($rxi, $ryi), xlabel = \"X\", ylabel = \"Y\"")` | 0 | scatterplot with null model and linear model
 `$df` | `$ss - 2` | 0 | degrees of freedom
-`$MSres` | `($SSy - $slope * $SP) / $df` | 1 | sample mean square residual
+`$MSres` | `($SSy - $slope * $SP) / $df` | 1 | mean square residual
 `$se` | `sqrt($MSres / $SSx)` | 1 | standard error of the slope
 `$tstat` | `round($slope / $se, 2)` | 2 | t-statistic
 `$P1_lt` | `sw_distrib("cdf_student_t ($tstat, $df)")` | 3 | one sided P-value from lower tail
