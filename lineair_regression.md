@@ -9,8 +9,9 @@
 1.1. linear_regression_intro  
 1.2. linear_regression_data  
 1.3. linear_regression_equation  
-1.4. linear_regression_ab
-1.5. linear_regression_t-test
+1.4. linear_regression_ab  
+1.5. linear_regression_H  
+1.5. linear_regression_t-test  
   
 # Variables
 Alias | Definition | Decimals | Author comments
