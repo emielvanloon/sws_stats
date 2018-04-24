@@ -20,7 +20,7 @@ Alias | Definition | Decimals | Author comments
 `$mux` | `sw_distrib("random_continuous_uniform(80, 100)")` | 1 | population mean of X
 `$muy` |  `sw_distrib("random_continuous_uniform(100, 120)")` | 1 | population mean of Y
 `$sigmax` | `sw_distrib("random_continuous_uniform(10, 50)")` | 1 | population standard deviation of X
-`sigmay` | `sw_distrib("random_continuous_uniform(10, 50)")` | 1 | population standard deviation of Y
+`$sigmay` | `sw_distrib("random_continuous_uniform(10, 50)")` | 1 | population standard deviation of Y
 `$cor` | `sw_distrib("random_continuous_uniform(-1, 1)")` | 2 | negative or positive correlation coefficient
 `$beta` | `$cor * $sigmay / $sigmax` | 2 | slope of population regression line
 `$alpha` | `$muy - $beta * $mux` | 2 | intercept of population regression line
@@ -31,8 +31,8 @@ Alias | Definition | Decimals | Author comments
 `$rxi_fm` | `substr($rxi, 1, -1)` | 1 | data for X formatted for text
 `$ryi_fm` | `substr($ryi, 1, -1)` | 1 | data for Y formatted for text
 `$scatter_plot` | `sw_draw("color = black, point_type = filled_circle, points($rxi, $ryi), xlabel = \"X\", ylabel = \"Y\"")` | 0 | scatterplot of X and Y
-`meanx` | `sw_descriptive("mean($rxi)")` | 1 | sample mean of X
-`meany` | `sw_descriptive("mean($ryi)")` | 1 | sample mean of Y
+`$meanx` | `sw_descriptive("mean($rxi)")` | 1 | sample mean of X
+`$meany` | `sw_descriptive("mean($ryi)")` | 1 | sample mean of Y
 `$SP` | `sw_maxima_native("apply(\"+\", ($rxi - $meanx) * ($ryi - $meany))")` | 1 | sample sum of products
 `$SSx` | `sw_descriptive("var($rxi) * $ss")` | 1 | sample sum of squares of X
 `$SSy` | `sw_descriptive("var($ryi) * $ss")` | 1 | sample sum of squares of Y
@@ -40,11 +40,11 @@ Alias | Definition | Decimals | Author comments
 `$intercept` | `round($meany - $slope * $meanx, 2)` | sample intercept rounded to 2 decimals
 `$plot` | `sw_draw("color = blue, explicit($meany, x, lmin($rxi), lmax($rxi)), color = red, explicit($wa + $v * x, x, lmin($rxi), lmax($rxi)), color = black, point_type = filled_circle, points($rxi, $ryi), xlabel = \"X\", ylabel = \"Y\"")` | 0 | scatterplot with null model and linear model
 `$df` | `$ss - 2` | 0 | degrees of freedom
-`MSres` | `($SSy - $slope * $SP) / $df` | 1 | sample mean square residual
+`$MSres` | `($SSy - $slope * $SP) / $df` | 1 | sample mean square residual
 `$se` | `sqrt($MSres / $SSx)` | 1 | standard error of the slope
 `$tstat` | `round($slope / $se, 2)` | 2 | t-statistic
 `$P1_lt` | `sw_distrib("cdf_student_t ($tstat, $df)")` | 3 | one sided P-value from lower tail
-`P_uf` | `($tstat < 0)? $P1_lt : (1 - $P1_lt) * 2` | 3 | unfloored two-sided P-value from lower or upper tail
+`$P_uf` | `($tstat < 0)? $P1_lt : (1 - $P1_lt) * 2` | 3 | unfloored two-sided P-value from lower or upper tail
 `$P` | `($P_uf > 1)? floor($P_uf) : $P_uf` | 3 | P-value floored in case it exceeds 1
 `$sign` | ($P < 0.05)? "significant" : "insignificant" | 0 | significance of t-test
 `$signs` | ($P < 0.05)? 1 : 2 | 0 | solution to significance of t-test
