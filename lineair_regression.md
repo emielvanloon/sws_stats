@@ -19,13 +19,21 @@ Alias | Definition | Decimals | Author comments
 `$sigmax` | `sw_distrib("random_continuous_uniform(10, 50)")` | 1 | population standard deviation of x
 `sigmay` | `sw_distrib("random_continuous_uniform(10, 50)")` | 1 | population standard deviation of y
 `$cor` | `sw_distrib("random_continuous_uniform(-1, 1)")` | 2 | negative / positive correlation coefficient
-`$slope` | `$cor * $sigmay / $sigmax` | 2 | slope of population regression line
-`intercept` | `$muy - $slope * $mux` | 2 | intercept of population regression line
-`sigmares` | `$sigmay * sqrt(1 - pow($cor,2))` | 1 | standard deviation of residual population
-`$res` | `sw_distrib("random_normal($intercept, $sigmares, $ss)")` | 1 | random sample of residuals
-`$rxi` | `sw_distrib("random_normal($mux, $sigmax, $ss)")` | 1 | random sample of x
-`$ryi` | `sw_maxima_native("$slope * $rxi + $res")` | 1 | random sample of y
-`$plot` | `sw_draw("point_type = filled_circle, points($rxi, $ryi), xlabel = \"X\", ylabel = \"Y\"")` | 0 | scatterplot of x and y
+`$beta` | `$cor * $sigmay / $sigmax` | 2 | slope of population regression line
+`$alpha` | `$muy - $beta * $mux` | 2 | intercept of population regression line
+`$sigmares` | `$sigmay * sqrt(1 - pow($cor,2))` | 1 | standard deviation of residual population
+`$res` | `sw_distrib("random_normal($alpha, $sigmares, $ss)")` | 1 | random sample of residuals
+`$rxi` | `sw_distrib("map(lambda([x], float(round(x*10)/10)), random_normal($mux, $sigmax, $ss))")` | 1 | random sample of x rounded to 1 decimal
+`$ryi` | `sw_maxima_native("map(lambda([x], float(round(x*10)/10)), $slope * $rxi + $res)")` | 1 | random sample of y rounded to 1 decimal
+`$rxi_fm` | `substr($rxi, 1, -1)` | 1 | data for X formatted for text
+`$ryi_fm` | `substr($rxi, 1, -1)` | 1 | data for Y formatted for text
+`$scatter_plot` | `sw_draw("color = black, point_type = filled_circle, points($rxi, $ryi), xlabel = \"X\", ylabel = \"Y\"")` | 0 | scatterplot of x and y
+`meanx` | `sw_descriptive("mean($rxi)")` | 1 | sample mean of X
+`meany` | `sw_descriptive("mean($ryi)")` | 1 | sample mean of Y
+`$sp` | `sw_maxima_native("apply(\"+\", ($rxi - $meanx) * ($ryi - $meany))")` | 1 | sample sum of products
+`$ssx` | `sw_descriptive("var($rxi) * $ss")` | 1 | sample sum of squares of X
+`$slope` | `round($sp / $ssx, 2)` | sample slope rounded to 2 decimals
+`$intercept` | `round($meany - $slope * $meanx, 2)` | sample intercept rounded to 2 decimals
 
 # 1.1. lineair_regression_intro
 
@@ -48,7 +56,8 @@ Choose the appropriate analysis
 ### Question
 $plot
 
-Assume #Y# and #X# are normally distributed.  
+Assume #X# and #Y# are normally distributed.
+
 Which analysis is appropriate to predict a value of #Y# from a value of #X#?
 
 ### Solution
@@ -92,18 +101,18 @@ Load data into R
 
 ### Question
 A random sample of X:
-$rxi
+$rxi_fm
 
 A random sample of Y:
-$ryi
+$ryi_fm
 
 Load the data into R.
 
 Specify the sample size (#n#).
 
 ### Solution
-<code>X = c($rxi_fmt)</code>  
-<code>Y = c($ryi)</code>
+<code>X = c($rxi_fm)</code>  
+<code>Y = c($ryi_fm)</code>
 
 ### Input area
 #n =# #input#
@@ -139,7 +148,7 @@ Formulate the equation for the regression line.
 ### Solution
 #a# is the intercept and #b# is the slope.
 
-#Y# is the response variabele and #X# is the explanatory variable.
+#X# is the explanatory variable and #Y# is the response variabele.
 
 The regression line is described by #Y = a + bX#.
 
@@ -160,3 +169,110 @@ Solution 2 | eval normal | 2 | 2
 Solution 3 | eval normal | 3 | 3
 Solution 4 | eval normal | 4 | 4
 Solution 5 | eval_exact | `Y = a + bX` | 5
+
+# 1.4. lineair_regression_ab
+
+## General options
+
+### Internal name
+lineair_regression_ab
+
+### Type
+open free
+
+### Number of input fields
+4
+
+## Texts
+
+### Title
+Calculate the regession line
+
+### Question
+Calculate the intercept (#a#).
+
+Calculate the slope (#b#).
+
+Formulate the regression line.
+
+Give your answers with 2 decimals.
+
+### Solution
+To calculate the regression line in R use:
+
+<code>model = lm(Y ~ X)</code>
+
+### Input area
+#a# = #input#
+
+#b# = #input#
+
+Regeression line: #Y =# #input# + #input##X#
+
+## Solutions
+Solution | Evaluation type | Definition | Answer field
+--- | --- | --- | ---
+Solution 1 | eval numeric | `$intercept` | 1
+Solution 2 | eval numeric | `$slope` | 2
+Solution 3 | eval numeric | `$intercept` | 3
+Solution 4 | eval numeric | `$slope` | 4
+
+# 1.5. lineair_regression_H
+
+## General options
+
+### Internal name
+lineair_regression_H
+
+### Type
+open free
+
+### Number of input fields
+
+
+## Texts
+
+### Title
+Formulate hypotheses
+
+### Question
+We want to test whether the previously formulated regression line (#Y = $intercept + $slope \cdot X#)
+is a significantly better predictive model compared to the null model (#Y = \bar{Y}#).
+
+Formulate the null hypothesis (#H_0#) and the alternative hypothesis (#H_A#) for the intercept (#a#) and the slope (#b#).
+
+### Solution
+Statistical hypotheses are always formulated in terms of population parameters.
+
+For the intercept (#a#):
+#H_0: \alpha = \bar{Y}#
+#H_A: \alpha \neq \bar{Y}#
+
+For the slobe (#b#):
+#H_0: \beta = 0#
+#H_A: \beta \neq 0#
+
+### Input area
+For the intercept (#a#):
+#H_0:# #dropdown(#a#, #\alpha#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#0#, #\bar{Y}#)#
+#H_A:# #dropdown(#a#, #\alpha#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#0#, #\bar{Y}#)#
+
+For the slobe (#b#):
+#H_0:# #dropdown(#b#, #\beta#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#0#, #\bar{Y}#)#
+#H_A:# #dropdown(#b#, #\beta#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#0#, #\bar{Y}#)#
+
+## Solutions
+Solution | Evaluation type | Definition | Answer field
+--- | --- | --- | ---
+Solution 1 | eval normal | 2 | 1
+Solution 2 | eval normal | 1 | 2
+Solution 3 | eval normal | 2 | 3
+Solution 4 | eval normal | 2 | 4
+Solution 5 | eval normal | 2 | 5
+Solution 6 | eval normal | 2 | 6
+Solution 7 | eval normal | 2 | 7
+Solution 8 | eval normal | 1 | 8
+Solution 9 | eval normal | 1 | 9
+Solution 10 | eval normal | 2 | 10
+Solution 11 | eval normal | 2 | 11
+Solution 12 | eval normal | 1 | 12
