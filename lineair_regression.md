@@ -1,14 +1,16 @@
-# Lineair regression analysis in R
+# Linear regression analysis in R
 
 # Prerequisites
 
 # Objective
-* Perfrom lineair regression analysis in R
+* Perfrom linear regression analysis in R
 
 # Order
-1.1. lineair_regression_intro  
-1.2. lineair_regression_data  
-1.3. lineair_regression_equation  
+1.1. linear_regression_intro  
+1.2. linear_regression_data  
+1.3. linear_regression_equation  
+1.4. linear_regression_ab
+1.5. linear_regression_t-test
   
 # Variables
 Alias | Definition | Decimals | Author comments
@@ -30,17 +32,31 @@ Alias | Definition | Decimals | Author comments
 `$scatter_plot` | `sw_draw("color = black, point_type = filled_circle, points($rxi, $ryi), xlabel = \"X\", ylabel = \"Y\"")` | 0 | scatterplot of x and y
 `meanx` | `sw_descriptive("mean($rxi)")` | 1 | sample mean of X
 `meany` | `sw_descriptive("mean($ryi)")` | 1 | sample mean of Y
-`$sp` | `sw_maxima_native("apply(\"+\", ($rxi - $meanx) * ($ryi - $meany))")` | 1 | sample sum of products
-`$ssx` | `sw_descriptive("var($rxi) * $ss")` | 1 | sample sum of squares of X
-`$slope` | `round($sp / $ssx, 2)` | sample slope rounded to 2 decimals
+`$SP` | `sw_maxima_native("apply(\"+\", ($rxi - $meanx) * ($ryi - $meany))")` | 1 | sample sum of products
+`$SSx` | `sw_descriptive("var($rxi) * $ss")` | 1 | sample sum of squares of X
+`$SSy` | `sw_descriptive("var($ryi) * $ss")` | 1 | sample sum of squares of Y
+`$slope` | `round($SP / $SSx, 2)` | sample slope rounded to 2 decimals
 `$intercept` | `round($meany - $slope * $meanx, 2)` | sample intercept rounded to 2 decimals
+`$plot` | `sw_draw("color = blue, explicit($meany, x, lmin($rxi), lmax($rxi)), color = red, explicit($wa + $v * x, x, lmin($rxi), lmax($rxi)), color = black, point_type = filled_circle, points($rxi, $ryi), xlabel = \"X\", ylabel = \"Y\"")` | 0 | scatterplot with null model and linear model
+`$df` | `$ss - 2` | 0 | degrees of freedom
+`MSres` | `($SSy - $slope * $SP) / $df` | 1 | sample mean square residual
+`$se` | `sqrt($MSres / $SSx)` | 1 | standard error of the slope
+`$tstat` | `round($slope / $se, 2)` | 2 | t-statistic
+`$P1_lt` | `sw_distrib("cdf_student_t ($tstat, $df)")` | 3 | one sided P-value from lower tail
+`P_uf` | `($tstat < 0)? $P1_lt : (1 - $P1_lt) * 2` | 3 | unfloored two-sided P-value from lower or upper tail
+`$P` | `($P_uf > 1)? floor($P_uf) : $P_uf` | 3 | P-value floored in case it exceeds 1
+`$sign` | ($P < 0.05)? "significant" : "insignificant" | 0 | significance of t-test
+`$signs` | ($P < 0.05)? 1 : 2 | 0 | solution to significance of t-test
+`$R2` | `pow($SP / sqrt($SSx * $SSy), 2)` | R-squared
+`$creased` | `($slope > 0)? "increased" : "decreased"` | 0 | increased or decreased
+`$creaseds` | `($slope > 0)? 1 : 2` | 0 | solution to increased or decreased dropdown
 
-# 1.1. lineair_regression_intro
+# 1.1. linear_regression_intro
 
 ## General options
 
 ### Internal name
-lineair_regression_intro
+linear_regression_intro
 
 ### Type
 radio button
@@ -61,32 +77,32 @@ Assume #X# and #Y# are normally distributed.
 Which analysis is appropriate to predict a value of #Y# from a value of #X#?
 
 ### Solution
-A lineair regression analysis is used to predict a value of #Y# from a value of #X#.
+A linear regression analysis is used to predict a value of #Y# from a value of #X#.
 
 Assuming:
 <ul>
 <li>#X# and #Y# are normally distributed</li>
-<li>#X# and #Y# have a lineair relationship</li>
+<li>#X# and #Y# have a linear relationship</li>
 <li>the variance of #Y#-values is not significantly different at all values of #X#</li>
 </ul>
 
 ### Options
 1. Pearson correlation analysis  
 2. Spearman correlation analysis  
-3. Lineair regression analysis  
-4. Non-lineair regression analysis  
+3. Linear regression analysis  
+4. Non-linear regression analysis  
 
 ## Solutions
 Solution | Definition
 --- | ---
 Solution 1 | 3
 
-# 1.2. lineair_regression_data
+# 1.2. linear_regression_data
 
 ## General options
 
 ### Internal name
-lineair_regression_data
+linear_regression_data
 
 ### Type
 open free
@@ -122,12 +138,12 @@ Solution | Evaluation type | Definition | Answer field
 --- | --- | --- | ---
 Solution 1 | eval numeric | `$ss` | 1
 
-# 1.3. lineair_regression_equation
+# 1.3. linear_regression_equation
 
 ## General options
 
 ### Internal name
-lineair_regression_equation
+linear_regression_equation
 
 ### Type
 open free
@@ -170,12 +186,12 @@ Solution 3 | eval normal | 3 | 3
 Solution 4 | eval normal | 4 | 4
 Solution 5 | eval_exact | `Y = a + bX` | 5
 
-# 1.4. lineair_regression_ab
+# 1.4. linear_regression_ab
 
 ## General options
 
 ### Internal name
-lineair_regression_ab
+linear_regression_ab
 
 ### Type
 open free
@@ -217,18 +233,18 @@ Solution 2 | eval numeric | `$slope` | 2
 Solution 3 | eval numeric | `$intercept` | 3
 Solution 4 | eval numeric | `$slope` | 4
 
-# 1.5. lineair_regression_H
+# 1.5. linear_regression_H
 
 ## General options
 
 ### Internal name
-lineair_regression_H
+linear_regression_H
 
 ### Type
 open free
 
 ### Number of input fields
-
+6
 
 ## Texts
 
@@ -236,43 +252,75 @@ open free
 Formulate hypotheses
 
 ### Question
-We want to test whether the previously formulated regression line (#Y = $intercept + $slope \cdot X#)
-is a significantly better predictive model compared to the null model (#Y = \bar{Y}#).
+$plot
 
-Formulate the null hypothesis (#H_0#) and the alternative hypothesis (#H_A#) for the intercept (#a#) and the slope (#b#).
+We want to test whether the previously formulated regression line (#Y = $intercept + $slope \cdot X#, in red)
+is a significantly better predictive model compared to the null model (#Y = \bar{Y}#, in blue).
+
+Formulate the null hypothesis (#H_0#) and the alternative hypothesis (#H_A#).
 
 ### Solution
 Statistical hypotheses are always formulated in terms of population parameters.
 
-For the intercept (#a#):
-#H_0: \alpha = \bar{Y}#
-#H_A: \alpha \neq \bar{Y}#
-
-For the slobe (#b#):
 #H_0: \beta = 0#
 #H_A: \beta \neq 0#
 
 ### Input area
-For the intercept (#a#):
-#H_0:# #dropdown(#a#, #\alpha#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#0#, #\bar{Y}#)#
-#H_A:# #dropdown(#a#, #\alpha#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#0#, #\bar{Y}#)#
-
-For the slobe (#b#):
-#H_0:# #dropdown(#b#, #\beta#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#0#, #\bar{Y}#)#
-#H_A:# #dropdown(#b#, #\beta#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#0#, #\bar{Y}#)#
+#H_0:# #dropdown(#a#, #\alpha#, #b#, #\beta#, #\bar{X}#, #\bar{Y}#, #\mu_X#, #\mu_Y#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#0#, #\bar{X}#, #\bar{Y}#, #\mu_X#, #\mu_Y#)#
+#H_A:# #dropdown(#a#, #\alpha#, #b#, #\beta#, #\bar{X}#, #\bar{Y}#, #\mu_X#, #\mu_Y#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#0#, #\bar{X}#, #\bar{Y}#, #\mu_X#, #\mu_Y#)#
 
 ## Solutions
 Solution | Evaluation type | Definition | Answer field
 --- | --- | --- | ---
-Solution 1 | eval normal | 2 | 1
+Solution 1 | eval normal | 4 | 1
 Solution 2 | eval normal | 1 | 2
-Solution 3 | eval normal | 2 | 3
-Solution 4 | eval normal | 2 | 4
+Solution 3 | eval normal | 1 | 3
+Solution 4 | eval normal | 4 | 4
 Solution 5 | eval normal | 2 | 5
-Solution 6 | eval normal | 2 | 6
-Solution 7 | eval normal | 2 | 7
-Solution 8 | eval normal | 1 | 8
-Solution 9 | eval normal | 1 | 9
-Solution 10 | eval normal | 2 | 10
-Solution 11 | eval normal | 2 | 11
-Solution 12 | eval normal | 1 | 12
+Solution 6 | eval normal | 1 | 6
+
+# 1.6. linear_regression_t-test
+
+## General options
+
+### Internal name
+linear_regression_t-test
+
+### Type
+open free
+
+### Number of input fields
+7
+
+## Texts
+
+### Title
+Report the results
+
+### Question
+Using R, report the results of the regression analysis.
+
+The amount of decimals for the results are indicated in the text areas.
+
+### Solution
+A linear regression was calculated to predict Y based on X.  
+A $sign regression equation was found (t($df)=$tstat,p=$P), 
+with an R^2 of $R2. 
+X $creased by $slope for each unit of Y.
+
+### Input area
+A linear regression was calculated to predict #input# based on #input#.  
+A #dropdown("significant", "insignificant")# regression equation was found (t(#textarea;#df##)=#textarea;#0.00##,p=#textarea;#0.000##), 
+with an R^2 of #textarea;#0.00##. 
+X #dropdown("increased", "decreased")# by #textarea;#0.0## for each unit of Y.
+
+## Solutions
+Solution | Evaluation type | Definition | Answer field
+--- | --- | --- | ---
+Solution 1 | eval normal | `$signs` | 1
+Solution 2 | eval numeric | `$df` | 2
+Solution 3 | eval numeric | `$tstat` | 3
+Solution 4 | eval numeric | `$P` | 4
+Solution 5 | eval numeric | `$R2` | 5
+Solution 6 | eval normal | `$creaseds` | 6
+Solution 7 | eval numeric | `$slope` | 7
