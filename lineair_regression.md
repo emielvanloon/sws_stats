@@ -36,7 +36,8 @@ Alias | Definition | Decimals | Author comments
 `$SP` | `sw_maxima_native("apply(\"+\", ($rxi - $meanx) * ($ryi - $meany))")` | 1 | sum of products
 `$SSx` | `sw_descriptive("var($rxi) * $ss")` | 1 | sum of squares of X
 `$SSy` | `sw_descriptive("var($ryi) * $ss")` | 1 | sum of squares of Y
-`$slope` | `round($SP / $SSx, 2)` | 2 | sample slope rounded to 2 decimals
+`$slope` | `$SP / $SSx` | 2 | sample slope unrounded
+`$slope_rnd` | `round($slope, 2)` | 2 | sample slope rounded to 2 decimals
 `$intercept` | `round($meany - $slope * $meanx, 2)` | 2 | sample intercept rounded to 2 decimals
 `$plot` | `sw_draw("color = blue, explicit($meany, x, lmin($rxi), lmax($rxi)), color = red, explicit($wa + $v * x, x, lmin($rxi), lmax($rxi)), color = black, point_type = filled_circle, points($rxi, $ryi), xlabel = \"X\", ylabel = \"Y\"")` | 0 | scatterplot with null model and linear model
 `$df` | `$ss - 2` | 0 | degrees of freedom
@@ -235,7 +236,7 @@ Regression line: #Y =# #input# + #input# #\cdot X#
 Solution | Evaluation type | Definition | Answer field
 --- | --- | --- | ---
 Solution 1 | eval numeric | `$intercept` | 1
-Solution 2 | eval numeric | `$slope` | 2
+Solution 2 | eval numeric | `$slope_rnd` | 2
 Solution 3 | eval numeric | `$intercept` | 3
 Solution 4 | eval numeric | `$slope` | 4
 
