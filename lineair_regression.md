@@ -328,7 +328,7 @@ Conclusion: the regression equation was #dropdown(significant, insignificant)#.
 Solution | Evaluation type | Definition | Answer field
 --- | --- | --- | ---
 Solution 1 | eval numeric | `$df` | 1
-Solution 2 | eval numeric | `$tstat` | 2
+Solution 2 | eval numeric | `$tstat_rnd` | 2
 Solution 3 | eval numeric | `$P` | 3
 Solution 4 | eval numeric | `$R2` | 4
 Solution 5 | eval normal | `$signs` | 5
