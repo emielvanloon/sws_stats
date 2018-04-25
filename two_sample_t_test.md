@@ -238,7 +238,7 @@ s^2_p = \frac{df_1 \cdot s^2_1 + df_2 \cdot s^2_2}{df}
 ## Solutions
 Solution | Evaluation type | Definition | Answer field
 --- | --- | --- | ---
-Solution 1 | eval numeric | `$sp2` | 1
+Solution 1 | eval numeric | `$s2p` | 1
 
 # 1.4. two_sample_t_test_SE 
 
