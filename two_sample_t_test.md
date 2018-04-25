@@ -173,11 +173,11 @@ Formulate the null hypothesis (#H_0#) and the alternative hypothesis (#H_A#).
 ### Solution
 Statistical hypotheses are always formulated in terms of population parameters.
 
-#H_0: \mu_1 = \mu_2#
+#H_0: \mu_1 = \mu_2#  
 #H_A: \mu_1 $ahsign \mu_2#
 
 ### Input area
-#H_0:# #dropdown(#\bar{Y}\_1#, #\bar{Y}\_2#, #\mu_1#, #\mu_2#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#\bar{Y}\_1#, #\bar{Y}\_2#, #\mu_1#, #\mu_2#)#
+#H_0:# #dropdown(#\bar{Y}\_1#, #\bar{Y}\_2#, #\mu_1#, #\mu_2#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#\bar{Y}\_1#, #\bar{Y}\_2#, #\mu_1#, #\mu_2#)#  
 #H_A:# #dropdown(#\bar{Y}\_1#, #\bar{Y}\_2#, #\mu_1#, #\mu_2#)# #dropdown(#=#, #\neq#, #<#, #>#)# #dropdown(#\bar{Y}\_1#, #\bar{Y}\_2#, #\mu_1#, #\mu_2#)#
 
 ## Solutions
