@@ -43,7 +43,8 @@ Alias | Definition | Decimals | Author comments
 `$df` | `$ss - 2` | 0 | degrees of freedom
 `$MSres` | `($SSy - $slope * $SP) / $df` | 1 | mean square residual
 `$se` | `sqrt($MSres / $SSx)` | 1 | standard error of the slope
-`$tstat` | `round($slope / $se, 2)` | 2 | t-statistic
+`$tstat` | `$slope / $se` | 2 | t-statistic unrounded
+`$tstat_rnd` | `round($tstat, 2)` | 2 | t-statistic rounded to 2 decimals
 `$P1_lt` | `sw_distrib("cdf_student_t ($tstat, $df)")` | 3 | one sided P-value from lower tail
 `$P_uf` | `($tstat < 0)? $P1_lt * 2 : (1 - $P1_lt) * 2` | 3 | unfloored two-sided P-value from lower or upper tail
 `$P` | `($P_uf > 1)? floor($P_uf) : $P_uf` | 3 | P-value floored in case it exceeds 1
