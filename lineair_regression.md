@@ -295,7 +295,7 @@ linear_regression_t-test
 open free
 
 ### Number of input fields
-4
+5
 
 ## Texts
 
@@ -309,7 +309,7 @@ The amount of decimals for the results are indicated in the text areas.
 
 ### Solution
 A linear regression was calculated to predict #Y# based on #X#. 
-A $sign regression equation was found (#t($df)=$tstat,p=$P#), with an #R^2# of #$R2#. 
+A $sign regression equation was found (#t($df)=$tstat, p=$P#), with an #R^2# of #$R2#. 
 #X# $creased by #$slope# for each unit of #Y#.
 
 ### Input area
@@ -321,6 +321,8 @@ A $sign regression equation was found (#t($df)=$tstat,p=$P#), with an #R^2# of #
 
 #R^2# = #input# (2 decimals)
 
+Conclusion: the regression equation was #dropdown(significant, insignificant)#.
+
 ## Solutions
 Solution | Evaluation type | Definition | Answer field
 --- | --- | --- | ---
@@ -328,3 +330,4 @@ Solution 1 | eval numeric | `$df` | 1
 Solution 2 | eval numeric | `$tstat` | 2
 Solution 3 | eval numeric | `$P` | 3
 Solution 4 | eval numeric | `$R2` | 4
+Solution 5 | eval normal | `$signs` | 5
