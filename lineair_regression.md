@@ -71,7 +71,7 @@ radio button
 Choose the appropriate analysis
 
 ### Question
-$plot
+$scatter_plot
 
 Assume #X# and #Y# are normally distributed.
 
@@ -129,6 +129,7 @@ Specify the sample size (#n#).
 
 ### Solution
 <code>X = c($rxi_fm)</code>  
+
 <code>Y = c($ryi_fm)</code>
 
 ### Input area
@@ -155,7 +156,7 @@ open free
 ## Texts
 
 ### Title
-Formulate the regession line
+Formulate the regression line
 
 ### Question
 Name all variabels and parameters.
@@ -203,7 +204,7 @@ open free
 ## Texts
 
 ### Title
-Calculate the regession line
+Calculate the regression line
 
 ### Question
 Calculate the intercept (#a#).
@@ -224,7 +225,7 @@ To calculate the regression line in R use:
 
 #b# = #input#
 
-Regeression line: #Y =# #input# + #input##X#
+Regression line: #Y =# #input# + #input# #\cdot X#
 
 ## Solutions
 Solution | Evaluation type | Definition | Answer field
@@ -255,8 +256,8 @@ Formulate hypotheses
 ### Question
 $plot
 
-We want to test whether the previously formulated regression line (#Y = $intercept + $slope \cdot X#, in red)
-is a significantly better predictive model compared to the null model (#Y = \bar{Y}#, in blue).
+We want to test whether the previously formulated regression line (<span style="color: red;">#Y = $intercept + $slope \cdot X#</span>)
+is a significantly better predictive model compared to the null model (<span style="color: blue;">#Y = \bar{Y}#</span>).
 
 Formulate the null hypothesis (#H_0#) and the alternative hypothesis (#H_A#).
 
@@ -291,7 +292,7 @@ linear_regression_t-test
 open free
 
 ### Number of input fields
-7
+9
 
 ## Texts
 
@@ -318,10 +319,12 @@ X #dropdown("increased", "decreased")# by #textarea;#0.0## for each unit of Y.
 ## Solutions
 Solution | Evaluation type | Definition | Answer field
 --- | --- | --- | ---
-Solution 1 | eval normal | `$signs` | 1
-Solution 2 | eval numeric | `$df` | 2
-Solution 3 | eval numeric | `$tstat` | 3
-Solution 4 | eval numeric | `$P` | 4
-Solution 5 | eval numeric | `$R2` | 5
-Solution 6 | eval normal | `$creaseds` | 6
-Solution 7 | eval numeric | `$slope` | 7
+Solution 1 | eval text | 'Y' | 1
+Solution 2 | eval numeric | 'X' | 2
+Solution 3 | eval normal | `$signs` | 3
+Solution 4 | eval numeric | `$df` | 4
+Solution 5 | eval numeric | `$tstat` | 5
+Solution 6 | eval numeric | `$P` | 6
+Solution 7 | eval numeric | `$R2` | 7
+Solution 8 | eval normal | `$creaseds` | 8
+Solution 9 | eval numeric | `$slope` | 9
