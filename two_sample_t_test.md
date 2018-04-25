@@ -405,7 +405,7 @@ Compare the P-value (#P#) to the significance level (#\alpha#).
 ## Solutions
 Solution | Evaluation type | Definition | Answer field
 --- | --- | --- | ---
-Solution 1 | eval numeric | `$comps` | 1
+Solution 1 | eval normal | `$comps` | 1
 
 # 1.8. two_sample_t_test_con
 
