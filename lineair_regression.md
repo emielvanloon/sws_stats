@@ -216,6 +216,10 @@ Formulate the regression line.
 Give your answers with 2 decimals.
 
 ### Solution
+#a = $intercept#
+#b = $slope#
+#Y = $intercept + $slope \cdot X#
+
 To calculate the regression line in R use:
 
 <code>model = lm(Y ~ X)</code>
