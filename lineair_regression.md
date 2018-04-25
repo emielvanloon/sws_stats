@@ -48,7 +48,7 @@ Alias | Definition | Decimals | Author comments
 `$P` | `($P_uf > 1)? floor($P_uf) : $P_uf` | 3 | P-value floored in case it exceeds 1
 `$sign` | `($P < 0.05)? "significant" : "insignificant"` | 0 | significance of t-test
 `$signs` | `($P < 0.05)? 1 : 2` | 0 | solution to significance of t-test
-`$R2` | `pow($SP / sqrt($SSx * $SSy), 2)` | R-squared
+`$R2` | `pow($SP / sqrt($SSx * $SSy), 2)` | 2 | R-squared value
 `$creased` | `($slope > 0)? "increased" : "decreased"` | 0 | increased or decreased
 `$creaseds` | `($slope > 0)? 1 : 2` | 0 | solution to increased or decreased dropdown
 
