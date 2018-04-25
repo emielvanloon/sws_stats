@@ -46,8 +46,8 @@ Alias | Definition | Decimals | Author comments
 `$P1_lt` | `sw_distrib("cdf_student_t ($tstat, $df)")` | 3 | one sided P-value from lower tail
 `$P_uf` | `($tstat < 0)? $P1_lt : (1 - $P1_lt) * 2` | 3 | unfloored two-sided P-value from lower or upper tail
 `$P` | `($P_uf > 1)? floor($P_uf) : $P_uf` | 3 | P-value floored in case it exceeds 1
-`$sign` | ($P < 0.05)? "significant" : "insignificant" | 0 | significance of t-test
-`$signs` | ($P < 0.05)? 1 : 2 | 0 | solution to significance of t-test
+`$sign` | `($P < 0.05)? "significant" : "insignificant"` | 0 | significance of t-test
+`$signs` | `($P < 0.05)? 1 : 2` | 0 | solution to significance of t-test
 `$R2` | `pow($SP / sqrt($SSx * $SSy), 2)` | R-squared
 `$creased` | `($slope > 0)? "increased" : "decreased"` | 0 | increased or decreased
 `$creaseds` | `($slope > 0)? 1 : 2` | 0 | solution to increased or decreased dropdown
