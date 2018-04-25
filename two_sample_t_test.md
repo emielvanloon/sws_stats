@@ -54,7 +54,7 @@ Alias | Definition | Decimals | Author comments
 `$sided_num` | `($sided == 'two')? 2 : 1` | 0 | one or two sided nummeric
 `$P1_lt` | `sw_distrib("cdf_student_t ($tstat, $df)")` | 3 | one sided P-value from lower tail
 `$P_uf` | `($tstat < 0)? $P1_lt * $sided_num : (1 - $P1_lt) * $sided_num` | 3 | unfloored one or two-sided P-value from lower or upper tail
-`$P` | `($P_uf > 1)? floor($P_uf) : $P_uf` | 3 | P-value floored in case it exceeds 1
+`$P` | `round(($P_uf > 1)? floor($P_uf) : $P_uf, 3)` | 3 | P-value floored in case it exceeds 1 rounded to 3 decimals
 `$comps` | `($P < $alpha)? 1 : 2` | 0 | solution to P and alpha comparison dropdown
 `$compsign` | `($P < $alpha)? '<' : '>'` | 0 | LaTeX sign for P and alpha comparison
 `$cons` | `($P > $alpha)? 1 : (($mean1 < $mean2)? 3 : 4)` | 0 | solution to conclusion multiple choice question
