@@ -319,8 +319,8 @@ X #dropdown("increased", "decreased")# by #textarea;#0.0## for each unit of Y.
 ## Solutions
 Solution | Evaluation type | Definition | Answer field
 --- | --- | --- | ---
-Solution 1 | eval text | 'Y' | 1
-Solution 2 | eval numeric | 'X' | 2
+Solution 1 | text case sensitive | Y | 1
+Solution 2 | text case sensitive | X | 2
 Solution 3 | eval normal | `$signs` | 3
 Solution 4 | eval numeric | `$df` | 4
 Solution 5 | eval numeric | `$tstat` | 5
