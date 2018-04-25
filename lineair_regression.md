@@ -1,6 +1,15 @@
 # Linear regression analysis in R
 
 # Prerequisites
+* Know difference between correlation and regression analyses
+* Save data in vector in R
+* Know concepts slope and intercept
+* Know concepts explanatory variable and response variable
+* Know the lineair regression equation
+* Use `lm` function in R
+* Formulate regression analysis hypotheses
+* Use `summary` function in R
+* Indicate if P-value is significant
 
 # Objective
 * Perfrom linear regression analysis in R
