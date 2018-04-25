@@ -228,9 +228,9 @@ The pooled variance (#s^2_p#) is calculated by:
 
 \begin{aligned}  
 s^2_p = \frac{df_1 \cdot s^2_1 + df_2 \cdot s^2_2}{df}  
-= \frac{$df1 \cdot $var1 + $df2 \cdot $var2}{$df}  
-= $s2p  
-\end{aligned}  
+= \frac{$df1 \cdot ~pow($sd1,2)~ + $df2 \cdot~pow($sd2,2)~}{$df}  
+= $s2p
+\end{aligned}
 
 ### Input area
 #s^2_p# = #input#
