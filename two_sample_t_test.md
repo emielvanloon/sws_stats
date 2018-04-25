@@ -41,7 +41,7 @@ Alias | Definition | Decimals | Author comments
 `$sd2` | `round(sw_descriptive("std1($ryi2)"), 1)` | 1 | second sample standard deviation rounded to 1 decimal
 `$alpha` | `array(0.01, 0.05)` | 2 | significance level
 `$sided` | `array('one', 'two')` | 0 | one or two sided in text
-`$alternative` | `($sided == 'two')? 'different from' : (($mean < $mu0)? 'less than' : 'greater than')` | 0 | text for alternative hypothesis
+`$alternative` | `($sided == 'two')? 'different from' : (($mean1 < $mean2)? 'less than' : 'greater than')` | 0 | text for alternative hypothesis
 `$ahs` | `($sided == 'two')? 2 : (($mean1 < $mean2)? 3 : 4)` | 0 | solution to alternative hypothesis dropdown
 `$ahsign` | `($sided == 'two')? '\neq' : (($mean1 < $mean2)? '<' : '>')` | 0 | LaTeX sign for alternative hypothesis
 `$df1` | `$ss1 - 1` | 0 | degrees of freedom of first sample
