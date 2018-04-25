@@ -45,13 +45,11 @@ Alias | Definition | Decimals | Author comments
 `$se` | `sqrt($MSres / $SSx)` | 1 | standard error of the slope
 `$tstat` | `round($slope / $se, 2)` | 2 | t-statistic
 `$P1_lt` | `sw_distrib("cdf_student_t ($tstat, $df)")` | 3 | one sided P-value from lower tail
-`$P_uf` | `($tstat < 0)? $P1_lt : (1 - $P1_lt) * 2` | 3 | unfloored two-sided P-value from lower or upper tail
+`$P_uf` | `($tstat < 0)? $P1_lt * 2 : (1 - $P1_lt) * 2` | 3 | unfloored two-sided P-value from lower or upper tail
 `$P` | `($P_uf > 1)? floor($P_uf) : $P_uf` | 3 | P-value floored in case it exceeds 1
 `$sign` | `($P < 0.05)? "significant" : "insignificant"` | 0 | significance of t-test
-`$signs` | `($P < 0.05)? 1 : 2` | 0 | solution to significance of t-test
 `$R2` | `pow($SP / sqrt($SSx * $SSy), 2)` | 2 | R-squared value
 `$creased` | `($slope > 0)? "increased" : "decreased"` | 0 | increased or decreased
-`$creaseds` | `($slope > 0)? 1 : 2` | 0 | solution to increased or decreased dropdown
 
 # 1.1. linear_regression_intro
 
@@ -297,7 +295,7 @@ linear_regression_t-test
 open free
 
 ### Number of input fields
-9
+4
 
 ## Texts
 
@@ -310,26 +308,23 @@ Using R, report the results of the regression analysis.
 The amount of decimals for the results are indicated in the text areas.
 
 ### Solution
-A linear regression was calculated to predict Y based on X.  
-A $sign regression equation was found (t($df)=$tstat,p=$P), 
-with an R^2 of $R2. 
-X $creased by $slope for each unit of Y.
+A linear regression was calculated to predict #Y# based on #X#. 
+A $sign regression equation was found (#t($df)=$tstat,p=$P#), with an #R^2# of #$R2#. 
+#X# $creased by #$slope# for each unit of #Y#.
 
 ### Input area
-A linear regression was calculated to predict #input# based on #input#.  
-A #dropdown("significant", "insignificant")# regression equation was found (t(#textarea;#df##)=#textarea;#0.00##,p=#textarea;#0.000##), 
-with an R^2 of #textarea;#0.00##. 
-X #dropdown("increased", "decreased")# by #textarea;#0.0## for each unit of Y.
+#df =# #input# (0 decimals)
+
+#t_{df} =# #input# (2 decimals)
+
+#P# = #input# (3 decimals)
+
+#R^2# = #input# (2 decimals)
 
 ## Solutions
 Solution | Evaluation type | Definition | Answer field
 --- | --- | --- | ---
-Solution 1 | text case sensitive | Y | 1
-Solution 2 | text case sensitive | X | 2
-Solution 3 | eval normal | `$signs` | 3
-Solution 4 | eval numeric | `$df` | 4
-Solution 5 | eval numeric | `$tstat` | 5
-Solution 6 | eval numeric | `$P` | 6
-Solution 7 | eval numeric | `$R2` | 7
-Solution 8 | eval normal | `$creaseds` | 8
-Solution 9 | eval numeric | `$slope` | 9
+Solution 1 | eval numeric | `$df` | 1
+Solution 2 | eval numeric | `$tstat` | 2
+Solution 3 | eval numeric | `$P` | 3
+Solution 4 | eval numeric | `$R2` | 4
