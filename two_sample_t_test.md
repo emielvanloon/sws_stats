@@ -190,12 +190,12 @@ Solution 4 | eval normal | 3 | 4
 Solution 5 | eval normal | `$ahs` | 5
 Solution 6 | eval normal | 4 | 6
 
-# 1.3. two_sample_t_test_sp2 
+# 1.3. two_sample_t_test_s2p 
 
 ## General options
 
 ### Internal name
-two_sample_t_test_sp2
+two_sample_t_test_s2p
 
 ### Type
 open free
@@ -209,14 +209,14 @@ open free
 Calculate the pooled variance
 
 ### Question
-The first sample size (#n_1#) is $ss1.
-The second sample size (#n_2#) is $ss2.
+The first sample size (#n_1#) is $ss1.  
+The second sample size (#n_2#) is $ss2.  
 
-The first degrees of freedom (#df_1#) are calculated by #n_1 - 1#.
-The second degrees of freedom (#df_2#) are calculated by #n_2 - 1#.
-The total degrees of freedom (#df#) are calulcated by #df_1 + df_2#.
+The first degrees of freedom (#df_1#) are calculated by #n_1 - 1#.  
+The second degrees of freedom (#df_2#) are calculated by #n_2 - 1#.  
+The total degrees of freedom (#df#) are calulcated by #df_1 + df_2#.  
 
-The first sample standard deviation (#s_1#) is $sd1.
+The first sample standard deviation (#s_1#) is $sd1.  
 The second sample standard deviation (#s_2#) is $sd2.
 
 Determine the value of the pooled variance (#s^2_p#).
@@ -226,11 +226,11 @@ Give your answer with 1 decimal.
 ### Solution
 The pooled variance (#s^2_p#) is calculated by:
 
-\begin{aligned}
-s^2_p = \frac{df_1 \cdot s^2_1 + df_2 \cdot s^2_2}{df}
-= \frac{$df1 \cdot $var1 + $df2 \cdot $var2}{$df}
-= $s2p
-\end{aligned}
+\begin{aligned}  
+s^2_p = \frac{df_1 \cdot s^2_1 + df_2 \cdot s^2_2}{df}  
+= \frac{$df1 \cdot $var1 + $df2 \cdot $var2}{$df}  
+= $s2p  
+\end{aligned}  
 
 ### Input area
 #s^2_p# = #input#
@@ -259,7 +259,7 @@ open free
 Calculate the standard error
 
 ### Question
-The first sample size (#n_1#) is $ss1.
+The first sample size (#n_1#) is $ss1.  
 The second sample size (#n_2#) is $ss2.
 
 The pooled variance (#s^2_p#) was calculated in the previous excercise.
@@ -269,12 +269,12 @@ Determine the value of the standard error of the difference between two sample m
 Give your answer with 1 decimal.
 
 ### Solution
-The standard error of the difference between two sample means (#SE_{\bar{Y}_1-\bar{Y}_2}#) is calculated by:
+The standard error of the difference between two sample means (#SE\_{\bar{Y}\_1-\bar{Y}\_2}#) is calculated by:
 
-\begin{aligned}
-SE_{\bar{Y}\_1-\bar{Y}\_2} = \sqrt{s^2_p \cdot (\frac{1}{n_1} + \frac{1}{n_2})}
-= \sqrt{$s2p \cdot (\frac{1}{$ss1} + \frac{1}{$ss2})}
-= $se
+\begin{aligned}  
+SE_{\bar{Y}\_1-\bar{Y}\_2} = \sqrt{s^2_p \cdot (\frac{1}{n_1} + \frac{1}{n_2})}  
+= \sqrt{$s2p \cdot (\frac{1}{$ss1} + \frac{1}{$ss2})}  
+= $se  
 \end{aligned}
 
 ### Input area
@@ -304,7 +304,7 @@ open free
 Calculate the t-statistic
 
 ### Question
-The first sample mean (#\bar{Y}\_1#) is $mean1.
+The first sample mean (#\bar{Y}\_1#) is $mean1.  
 The second sample mean (#\bar{Y}\_2#) is $mean2.
 
 The standard error (#SE_{\bar{Y}\_1-\bar{Y}\_2}#) and the degrees of freedom (#df#) were calculated in previous exercises.
@@ -316,10 +316,10 @@ Give your answer with 2 decimals.
 ### Solution
 The t-statistic (#t_{df}#) is calculated by:
 
-\begin{aligned}
-t_{$df} = \frac{\bar{Y}\_1 - \bar{Y}\_2}{SE_{\bar{Y}\_1-\bar{Y}\_2}}
-=\frac{$mean1 - $mean2}{$se}
-= $tstat
+\begin{aligned}  
+t_{$df} = \frac{\bar{Y}\_1 - \bar{Y}\_2}{SE_{\bar{Y}\_1-\bar{Y}\_2}}  
+=\frac{$mean1 - $mean2}{$se}  
+= $tstat  
 \end{aligned}
 
 ### Input area
@@ -396,7 +396,7 @@ The P-value (#P#) was calculated in the previous exercise.
 Compare the P-value (#P#) to the significance level (#\alpha#).
 
 ### Solution
-#P $compsign \alpha#
+#P $compsign \alpha#  
 #$P $compsign $alpha#
 
 ### Input area
@@ -426,7 +426,7 @@ radio button
 \~ucfirst($sided)\~-sided two sample t-test conclusion
 
 ### Question
-The first sample mean (#\bar{Y}\_1#) is $mean1.
+The first sample mean (#\bar{Y}\_1#) is $mean1.  
 The second sample mean (#\bar{Y}\_2#) is $mean2.
 
 Give the conclusion of the $sided-sided two sample t-test.
