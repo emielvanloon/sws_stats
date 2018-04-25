@@ -77,15 +77,15 @@ radion button
 ### Title
 
 ### Question
-The first sample size (#n_1#) is $ss1.
+The first sample size (#n_1#) is $ss1.  
 The second sample size (#n_2#) is $ss2.
 
-The first sample mean (#\bar{Y}\_1#) is $mean1.
-The second sample mean (#\bar{Y}\_2#) is $mean2.
+The first sample mean (#\bar{Y}\_1#) is $mean1.  
+The second sample mean (#\bar{Y}\_2#) is $mean2.  
 Assume the sample means are normally distributed.
 
-The first sample standard deviation (#s\_1#) is $sd1.
-The second sample standard deviation (#s\_2#) is $sd2.
+The first sample standard deviation (#s\_1#) is $sd1.  
+The second sample standard deviation (#s\_2#) is $sd2.  
 Assume the sample standard deviations do not significantly differ.
 
 The significance level (#\alpha#) is $alpha.
