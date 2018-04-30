@@ -10,7 +10,7 @@
 * Give a confidence interval for a mean
 
 # Order
-1. CI_of_mu
+1. CI_of_mu  
   1.1. CI_of_mu_tcrit  
   1.2. CI_of_mu_SE  
   1.3. CI_of_mu2  
@@ -106,9 +106,9 @@ Give your answer with 2 decimals.
 ### Solution
 The critical t-value (#t_{\alpha(2), df}#) for a $percentage% confidence interval (#CI#) can be calculated in R with:
 
-qt(p = $quantile, df = ~$ss - 1~, lower.tail = TRUE)
+qt(p = $quantile, df = \~$ss - 1\~, lower.tail = TRUE)
 
-#t_{$alpha(2), ~$ss - 1~} = $tcrit#
+#t_{$alpha(2), \~$ss - 1\~} = $tcrit#
 
 ## Solutions
 Solution | Evaluation type | Definition | Answer field
